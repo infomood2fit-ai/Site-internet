@@ -14,7 +14,7 @@ const SLIDES = [
     left: [
       { id:"l1", num:"01 — MOOD",        title:"Je suis chaud",              desc:"T'as l'énergie, faut pas la gâcher. C'est le mood pour aller chercher quelque chose que t'avais jamais fait.",  tx:0.2,  ty:0.25 },
       { id:"l2", num:"02 — MOOD",        title:"Dans ma bulle",              desc:"Focus total. Pas de distraction, juste toi et ta séance. Certains jours, c'est tout ce dont t'as besoin.",       tx:0.2,  ty:0.38  },
-      { id:"l3", num:"03 — TEMPORALITÉ", title:"La commu bouge maintenant",  desc:"Vois en temps réel ce que les autres terminent. Rien de plus motivant que de savoir que t'es pas seul.",         tx:0.58, ty:0.60 },
+      { id:"l3", num:"03 — TEMPORALITÉ", title:"La commu bouge maintenant",  desc:"Vois en temps réel ce que les autres terminent. Rien de plus motivant que de savoir que t'es pas seul.",         tx:0.75, ty:0.61 },
     ],
     right: [
       { id:"r1", num:"04 — MOOD",        title:"À mon rythme",               desc:"Pas besoin d'être au max pour s'entraîner. Calme aussi, c'est un mood. L'important c'est d'y aller.",            tx:0.6, ty:0.25 },

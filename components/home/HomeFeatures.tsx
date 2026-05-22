@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const BASE_SLIDES = [
   { id: "mood", num: "01", title: "Ton humeur,\nta séance.", desc: "Que tu sois au top ou dans ta bulle, l'app s'adapte à ton énergie et te propose la séance qu'il te faut.", color: "#f72585", screen: "mood" },
-  { id: "matching", num: "02", title: "Le bon\npartenaire.", desc: "Niveau, disponibilités, mood. L'algorithme trouve les profils qui te correspondent vraiment.", color: "#000000", screen: "matching" },
-  { id: "challenges", num: "03", title: "Dépasse-toi\nensemble.", desc: "Des défis hebdomadaires solo ou en équipe. Pour progresser et ne jamais lâcher.", color: "#9650CD", screen: "challenges" },
+  { id: "matching", num: "02", title: "Ta séance,\nton rythme.", desc: "Mode libre ou défi de la semaine. Lance-toi quand tu veux, comme tu veux.", color: "#000000", screen: "matching" },
+  { id: "challenges", num: "03", title: "On t'écoute,\nvraiment.", desc: "Un bug, une idée, un truc qui cloche. Signale-le en deux secondes, on s'en occupe.", color: "#9650CD", screen: "challenges" },
 ];
 
 // ── Mokups par slide — remplace par les vrais assets quand disponibles
