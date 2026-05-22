@@ -7,13 +7,11 @@ import { motion } from "framer-motion";
 function PhoneHero() {
   return (
     <div className="relative flex items-center justify-center">
-      {/* Glow rose */}
       <div className="absolute rounded-[60px] pointer-events-none"
         style={{ inset: "-30px", background: "radial-gradient(circle, rgba(247,37,133,0.3), transparent 70%)", filter: "blur(40px)", opacity: 0.8 }} />
-      {/* Mokup — next/image */}
-      <div className="relative" style={{ width: "clamp(160px, 18vw, 270px)", zIndex: 1 }}>
+      <div className="relative" style={{ width: "clamp(160px, 21vw, 360px)", zIndex: 1 }}>
         <Image
-          src="/mokup/mokup_1.png"
+          src="/mokup/home_mokup.png"
           alt="Mood2Fit app"
           width={270}
           height={584}
@@ -29,17 +27,11 @@ export default function HomeHero() {
   return (
     <section className="relative h-screen flex items-center overflow-hidden bg-black">
 
-      {/* Fond street.jpeg — next/image fill */}
+      {/* Fond street.jpeg */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/street.jpeg"
-          alt=""
-          fill
-          className="object-cover opacity-60"
-          priority
-        />
+        <Image src="/street.jpeg" alt="" fill className="object-cover opacity-60" priority />
         <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.7) 85%, #000 100%)" }} />
-        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] pointer-events-none"
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(114,9,183,0.15) 0%, transparent 70%)" }} />
       </div>
 
@@ -65,8 +57,6 @@ export default function HomeHero() {
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }}
               className="flex gap-3">
-
-              {/* App Store */}
               <Link href="#" className="flex items-center gap-2.5 px-6 py-3 rounded-full bg-white hover:bg-white/90 active:scale-[0.97] transition-all duration-150" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.2)" }}>
                 <Image src="/app/apple.png" alt="Apple" width={22} height={22} style={{ objectFit: "contain", width: "22px", height: "22px" }} />
                 <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
@@ -74,8 +64,6 @@ export default function HomeHero() {
                   <span style={{ fontSize: "14px", fontWeight: 700, color: "#000", lineHeight: 1.2 }}>App Store</span>
                 </div>
               </Link>
-
-              {/* Google Play */}
               <Link href="#" className="flex items-center gap-2.5 px-6 py-3 rounded-full active:scale-[0.97] transition-all duration-150" style={{ background: "#000", border: "2px solid rgba(255,255,255,0.15)" }}>
                 <Image src="/app/android.png" alt="Google Play" width={22} height={22} style={{ objectFit: "contain", width: "22px", height: "22px" }} />
                 <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
@@ -83,16 +71,16 @@ export default function HomeHero() {
                   <span style={{ fontSize: "14px", fontWeight: 700, color: "#fff", lineHeight: 1.2 }}>Google Play</span>
                 </div>
               </Link>
-
             </motion.div>
           </motion.div>
 
-          {/* Droite — téléphone desktop uniquement */}
+          {/* Droite — téléphone semi-visible */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden md:flex justify-center items-center"
+            className="hidden md:flex justify-center items-end"
+            style={{ position: "relative", bottom: "-25%" }}
           >
             <motion.div animate={{ y: [0, -16, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}>
               <PhoneHero />

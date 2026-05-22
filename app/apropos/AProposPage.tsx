@@ -58,7 +58,7 @@ const team = [
 const stats = [
   { value: "2023", label: "Année de création" },
   { value: "3", label: "Personnes dans l'équipe" },
-  { value: "Pionniers", label: "Sur la liste d'attente" },
+  { value: "70 +", label: "Sur la liste d'attente" },
   { value: "Paris", label: "Notre base" },
 ];
 

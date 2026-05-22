@@ -12,40 +12,40 @@ const SLIDES = [
   {
     id: "home", bg: "#f72585", img: "/home.png", label: "HOME · ACCUEIL", num: "01 / 03",
     left: [
-      { id:"l1", num:"01 — MOOD",        title:"Choisis ton humeur",    desc:"4 moods pour démarrer : chaud, calme, focus ou dépassement de soi.",      tx:0.4,  ty:0.25 },
-      { id:"l2", num:"02 — COMMUNAUTÉ",  title:"La commu partage",      desc:"Vois ce que les autres terminent. Ici, hzziohf vient de finir sa séance.", tx:0.39, ty:0.65 },
-      { id:"l3", num:"03 — TEMPORALITÉ", title:"En direct, maintenant", desc:"Le badge En direct indique l'activité de la commu à l'instant t.",          tx:0.57, ty:0.60 },
+      { id:"l1", num:"01 — MOOD",        title:"Je suis chaud",    desc:"T'as l'énergie, faut pas la gâcher. C'est le mood pour aller chercher quelque chose que t'avais jamais fait.",      tx:0.4,  ty:0.25 },
+      { id:"l2", num:"02 — MOOD",  title:"Dans ma bulle",      desc:"Focus total. Pas de distraction, juste toi et ta séance. Certains jours, c'est tout ce dont t'as besoin.", tx:0.4, ty:0.4 },
+      { id:"l3", num:"03 — TEMPORALITÉ", title:"La commu bouge maintenant", desc:"Vois en temps réel ce que les autres terminent. Rien de plus motivant que de savoir que t'es pas seul.",          tx:0.58, ty:0.60 },
     ],
     right: [
-      { id:"r1", num:"04 — CARTE",        title:"Salles & street workout", desc:"L'onglet Carte recense les salles et spots de street workout en France.", tx:0.44, ty:0.86 },
-      { id:"r2", num:"05 — SURPREND-MOI", title:"Exos selon ton mood",     desc:"M2F choisit pour toi un exercice qui colle à ton humeur du jour.",        tx:0.44, ty:0.55 },
-      { id:"r3", num:"06 — SIGNALEMENT",  title:"Un bug ? Le drapeau",     desc:"Le drapeau en bas à droite permet de signaler un bug ou problème.",       tx:0.6,  ty:0.79 },
+      { id:"r1", num:"04 — MOOD",        title:"À mon rythme", desc:"Pas besoin d'être au max pour s'entraîner. Calme aussi, c'est un mood. L'important c'est d'y aller.", tx:0.55, ty:0.25 },
+      { id:"r2", num:"05 — MOOD", title:"Me dépasser",     desc:"T'es là pour souffrir aujourd'hui ? Parfait. L'app le sait et te donne ce qu'il faut pour aller au bout.",        tx:0.55, ty:0.4 },
+      { id:"r3", num:"06 — SIGNALEMENT",  title:"Un problème ? Tu nous le dis.",     desc:"Un bug, un truc qui cloche, le drapeau est là. On préfère le savoir plutôt que tu restes bloqué.",       tx:0.62,  ty:0.79 },
     ],
   },
   {
     id: "seance", bg: "#0A0A0F", img: "/sceance.png", label: "SÉANCES · TRAIN", num: "02 / 03",
     left: [
-      { id:"l1", num:"01 — CONNEXION", title:"Se connecter",              desc:"Connecte-toi pour suivre ta progression et débloquer les défis.",   tx:0.5,  ty:0.40 },
-      { id:"l2", num:"02 — DÉMARRER",  title:"Mode libre, tout de suite", desc:"Un bouton, et l'entraînement commence. Aucun programme imposé.",    tx:0.5,  ty:0.61 },
-      { id:"l3", num:"03 — DÉFI XP",   title:"+80 XP à gagner",           desc:"Chaque défi rapporte de l'expérience pour progresser de niveau.",   tx:0.4,  ty:0.32 },
+      { id:"l1", num:"01 — DÉFI XP", title:"Un défi t'attend cette semaine.",              desc:"Chaque semaine un nouveau challenge. Relève-le, gagne des XP, monte de niveau.",   tx:0.4,  ty:0.32 },
+      { id:"l2", num:"02 — CONNEXION",  title:"Connecte-toi, tout s'ouvre.", desc:"Tes progrès, tes défis, ton historique, tout est là dès que tu te connectes.",    tx:0.48,  ty:0.4 },
+      { id:"l3", num:"03 — FILTRES",   title:"Ta séance, tes règles.",           desc:"Niveau, durée, groupe musculaire, filtre et trouve exactement ce dont t'as besoin.",   tx:0.4,  ty:0.48 },
     ],
     right: [
-      { id:"r1", num:"04 — FILTRES",     title:"Filtre par niveau ou muscle", desc:"Choisis tes séances par niveau, durée ou groupe musculaire ciblé.", tx:0.59, ty:0.67 },
-      { id:"r2", num:"05 — MÉTADONNÉES", title:"Tout en un coup d'œil",       desc:"Type, durée, niveau et XP : la séance s'auto-décrit.",              tx:0.5,  ty:0.76 },
-      { id:"r3", num:"06 — MOTIVATION",  title:"1 en cours, tu rejoins ?",    desc:"Vois qui s'entraîne en même temps que toi pour rester motivé.",     tx:0.55, ty:0.80 },
+      { id:"r1", num:"04 — TOUT EN UN COUP D'ŒIL",     title:"Tu sais ce qui t'attend.", desc:"Type, durée, niveau, XP, tout est affiché avant même que tu commences.",tx:0.5,  ty:0.76 },
+      { id:"r2", num:"05 — DÉMARRER ", title:"Pas d'excuse. Un bouton.",       desc:"Mode libre, zéro programme imposé. T'as envie de bouger ? C'est parti.",              tx:0.48,  ty:0.6 },
+      { id:"r3", num:"06 — MOTIVATION ",  title:"Quelqu'un s'entraîne là, maintenant.",    desc:"Vois en direct qui est en séance. Parfois, c'est tout ce qu'il faut pour se lancer.",     tx:0.55, ty:0.80 },
     ],
   },
   {
     id: "profil", bg: "#9650CD", img: "/profil.jpeg", label: "PROFIL · YOU", num: "03 / 03",
     left: [
-      { id:"l1", num:"01 — XP & NIVEAU", title:"20 XP, Niveau 1",         desc:"La barre d'XP visualise ta progression vers le prochain niveau.",   tx:0.39, ty:0.23  },
-      { id:"l2", num:"02 — SÉANCES",     title:"Compte tes séances",       desc:"Le compteur SÉANCES totalise tous les entraînements terminés.",      tx:0.39, ty:0.31  },
-      { id:"l3", num:"03 — ÉDITER",      title:"Stylo → tu personnalises", desc:"Modifie pseudo et photo de profil en un tap sur le stylo.",          tx:0.58, ty:0.155 },
+      { id:"l1", num:"01 — XP & NIVEAU", title:"Tu progresses, on le voit.",         desc:"Chaque séance compte. La barre d'XP te montre exactement où t'en es dans ton parcours.",   tx:0.38, ty:0.23  },
+      { id:"l2", num:"02 — SÉANCES",     title:"Tes séances, ton histoire.",       desc:"Un compteur qui grandit avec toi. Chaque entraînement terminé s'ajoute à ton palmarès.",      tx:0.39, ty:0.31  },
+      { id:"l3", num:"03 — ÉDITER",      title:"Ton profil, c'est toi.", desc:"Pseudo, photo, disciplines, personnalise tout en un tap. C'est ton espace, fais-en ce que tu veux.",          tx:0.62, ty:0.158 },
     ],
     right: [
-      { id:"r1", num:"04 — POSTS",     title:"Tes posts publiés",           desc:"Le total des publications partagées avec la communauté.",            tx:0.5,  ty:0.31 },
-      { id:"r2", num:"05 — RÉACTIONS", title:"Tes interactions communauté", desc:"Le compteur de réactions laissées sur les posts des autres.",        tx:0.58, ty:0.31 },
-      { id:"r3", num:"06 — BADGES",    title:"Défis relevés",               desc:"Chaque badge récompense un défi ou un palier franchi.",              tx:0.4,  ty:0.54 },
+      { id:"r1", num:"04 — POSTS",     title:"Ce que tu partages reste.",           desc:"Tous tes posts, réunis au même endroit. Ta trace dans la communauté.",            tx:0.5,  ty:0.3 },
+      { id:"r2", num:"05 — RÉACTIONS", title:"T'as motivé des gens.", desc:"Chaque réaction que t'as laissée, c'est quelqu'un que t'as encouragé. Ça compte plus qu'on croit.",        tx:0.58, ty:0.31 },
+      { id:"r3", num:"06 — BADGES",    title:"Les défis que t'as relevés.",               desc:"Chaque badge raconte quelque chose. Un effort, un palier, un moment où t'as pas lâché.",              tx:0.38,  ty:0.54 },
     ],
   },
 ];
@@ -172,6 +172,31 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
       {/* ── MOBILE portrait ── */}
       <div className="md:hidden flex flex-col flex-1 min-h-0">
 
+        {/* 3 blocs du haut */}
+        <div style={{ flexShrink:0, display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"4px", padding:"4px 4px 0" }}>
+          {allBubbles.slice(0, 3).map((b, i) => (
+            <motion.div key={b.id} onClick={() => setActiveIdx(prev => prev === i ? null : i)}
+              initial={{ opacity:0, y:6 }} animate={{ opacity:1, y:0 }}
+              transition={{ duration:0.3, delay: i*0.04 }}
+              style={{
+                background: activeIdx===i ? "rgba(0,0,0,0.45)" : "rgba(0,0,0,0.22)",
+                border:`1px solid ${activeIdx===i ? "rgba(255,255,255,0.45)" : "rgba(255,255,255,0.12)"}`,
+                borderRadius:"6px", padding:"8px 9px", cursor:"pointer",
+                transition:"background 0.2s, border 0.2s",
+              }}>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:700, fontSize:"6px", letterSpacing:"0.15em", textTransform:"uppercase", color:numColors[i], marginBottom:"3px" }}>
+                — {b.num}
+              </p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"9px", color:titleColors[i], lineHeight:1.1, letterSpacing:"-0.01em", marginBottom:"3px", textTransform:"uppercase" }}>
+                {b.title}
+              </p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"7px", color:"rgba(255,255,255,0.65)", lineHeight:1.4 }}>
+                {b.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
         {/* Mokup centré */}
         <div ref={phoneRef} className="relative flex-1 flex justify-center items-center min-h-0 overflow-hidden">
           <AnimatePresence mode="wait">
@@ -181,7 +206,7 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
                 src={s.id === "home" ? "/mokup/mokup_1.png" : s.id === "seance" ? "/mokup/mokup_2.png" : "/mokup/mokup_3.png"}
                 alt={`Mockup ${s.label}`}
                 width={200} height={433}
-                style={{ height:"100%", width:"auto", objectFit:"contain", maxHeight:"100%" }}
+                style={{ height:"100%", width:"auto", objectFit:"contain", maxHeight:"80%" }}
               />
             </motion.div>
           </AnimatePresence>
@@ -204,50 +229,31 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
           </AnimatePresence>
         </div>
 
-        {/* Détail au clic */}
-        <AnimatePresence>
-          {activeIdx !== null && (() => {
-            const c = numColors[activeIdx];
-            return (
-              <motion.div key={`mob-desc-${activeIdx}`}
-                initial={{ opacity:0, height:0 }} animate={{ opacity:1, height:"auto" }} exit={{ opacity:0, height:0 }}
-                transition={{ duration:0.2 }}
-                style={{ flexShrink:0, overflow:"hidden", background:"rgba(0,0,0,0.5)", borderTop:`2px solid ${c}`, padding:"6px 10px" }}>
-                <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:700, fontSize:"9px", color:c, textTransform:"uppercase", letterSpacing:"0.05em", marginBottom:"2px" }}>
-                  {allBubbles[activeIdx].title}
-                </p>
-                <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"8px", color:"rgba(255,255,255,0.7)", lineHeight:1.4 }}>
-                  {allBubbles[activeIdx].desc}
-                </p>
-              </motion.div>
-            );
-          })()}
-        </AnimatePresence>
-
-        {/* 6 blocs footer */}
-        <motion.div
-          animate={{ scale: activeIdx !== null ? 0.95 : 1, y: activeIdx !== null ? -2 : 0 }}
-          transition={{ duration: 0.2 }}
-          style={{ flexShrink:0, display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"3px", padding:"3px 3px 5px" }}>
-          {allBubbles.map((b, i) => (
-            <motion.div key={b.id} onClick={() => setActiveIdx(prev => prev === i ? null : i)}
+        {/* 3 blocs du bas */}
+        <div style={{ flexShrink:0, display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"4px", padding:"0 4px 5px" }}>
+          {allBubbles.slice(3, 6).map((b, i) => (
+            <motion.div key={b.id} onClick={() => setActiveIdx(prev => prev === i+3 ? null : i+3)}
               initial={{ opacity:0, y:6 }} animate={{ opacity:1, y:0 }}
               transition={{ duration:0.3, delay: i*0.04 }}
               style={{
-                background: activeIdx===i ? "rgba(0,0,0,0.5)" : "rgba(0,0,0,0.25)",
-                border:`1px solid ${activeIdx===i ? numColors[i] : "rgba(255,255,255,0.12)"}`,
-                borderRadius:"5px", padding:"5px 6px", cursor:"pointer",
+                background: activeIdx===i+3 ? "rgba(0,0,0,0.45)" : "rgba(0,0,0,0.22)",
+                border:`1px solid ${activeIdx===i+3 ? "rgba(255,255,255,0.45)" : "rgba(255,255,255,0.12)"}`,
+                borderRadius:"6px", padding:"8px 9px", cursor:"pointer",
                 transition:"background 0.2s, border 0.2s",
               }}>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:700, fontSize:"5px", letterSpacing:"0.1em", textTransform:"uppercase", color:numColors[i], marginBottom:"2px" }}>
-                {b.num.split(" — ")[1]}
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:700, fontSize:"6px", letterSpacing:"0.15em", textTransform:"uppercase", color:numColors[i+3], marginBottom:"3px" }}>
+                — {b.num}
               </p>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"7px", color:titleColors[i], lineHeight:1.1, textTransform:"uppercase" }}>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"9px", color:titleColors[i+3], lineHeight:1.1, letterSpacing:"-0.01em", marginBottom:"3px", textTransform:"uppercase" }}>
                 {b.title}
+              </p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"7px", color:"rgba(255,255,255,0.65)", lineHeight:1.4 }}>
+                {b.desc}
               </p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
+
       </div>
 
     </div>

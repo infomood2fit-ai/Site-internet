@@ -137,7 +137,7 @@ function Card({ item }: { item: Article }) {
           <div className="flex items-center gap-2">
             {/* Badge FR / ANG */}
             {item.lang && (
-              <span className="font-roboto font-700 text-[9px] tracking-[0.1em] uppercase px-1.5 py-0.5 rounded"
+              <span className="font-roboto font-700 text-[13px] tracking-[0.1em] uppercase px-1.5 py-0.5 rounded"
                 style={{
                   background: item.lang === "FR" ? "rgba(0,122,255,0.15)" : "rgba(255,255,255,0.15)",
                   color: item.lang === "FR" ? (item.image ? "#fff" : "#007AFF") : (item.image ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.4)"),
@@ -154,7 +154,7 @@ function Card({ item }: { item: Article }) {
 
         {/* Titre */}
         <h3 className="font-roboto font-700 leading-tight mt-auto transition-colors duration-200"
-          style={{ fontSize: "16px", color: item.image ? "#fff" : "#000" }}>
+          style={{ fontSize: "16px", color: item.image ? "#f72585" : "#000" }}>
           {item.title}
         </h3>
 

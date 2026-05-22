@@ -313,7 +313,7 @@ export default function ContactPage() {
               transition={{ delay: 0.4 }}
               className="text-center mt-12">
               <p className="font-roboto font-400 text-white/35 text-sm mb-4">Tu n'as pas trouvé ta réponse ?</p>
-              <Link href="mailto:hello@mood2fit.app"
+              <Link href="mailto:hello@mood2fit.com"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-roboto font-700 text-sm text-white transition-all duration-150 hover:opacity-90"
                 style={{ background: "linear-gradient(135deg, #f72585, #7209b7)" }}>
                 <Mail size={15} /> Écris-nous directement
@@ -338,10 +338,10 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.3 }}>
-              <Link href="mailto:hello@mood2fit.app"
+              <Link href="mailto:hello@mood2fit.com"
                 className="inline-flex items-center gap-3 px-9 py-4 rounded-full font-roboto font-700 text-sm text-[#f72585] bg-white hover:scale-[1.03] active:scale-[0.97] transition-all"
                 style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.2)" }}>
-                <Mail size={18} /> hello@mood2fit.app
+                <Mail size={18} /> hello@mood2fit.com
               </Link>
             </motion.div>
           </div>

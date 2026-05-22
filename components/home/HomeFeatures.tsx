@@ -12,7 +12,7 @@ const BASE_SLIDES = [
 
 // ── Mokups par slide — remplace par les vrais assets quand disponibles
 const MOKUP_MAP: Record<string, string> = {
-  mood:       "/mokup/mokup_4.png",
+  mood:       "/mokup/mokup_1.png",
   matching:   "/mokup/mokup_5.png",
   challenges: "/mokup/mokup_6.png",
 };

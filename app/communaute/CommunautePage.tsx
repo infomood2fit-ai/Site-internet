@@ -70,10 +70,10 @@ const mapUsers = [
 ];
 
 const stats = [
-  { value: "Les pionniers", label: "membres actifs" },
-  { value: "Des séances", label: "partagées" },
-  { value: "Une commu", label: "qui reste" },
-  { value: "Des retours", label: "qui motivent" },
+  { value: " 70+", label: "membres actifs" },
+  { value: "100", label: " séances partagées" },
+  { value: "800", label: "park Street-Workout en France" },
+  { value: "5 600+", label: "salle de sport en France" },
 ];
 
 function PostCard({ post }: { post: typeof feedPosts[0] }) {
@@ -150,7 +150,7 @@ export default function CommunautePage() {
             </h1>
             <p className="font-roboto font-400 max-w-lg text-center"
               style={{ fontSize: "clamp(15px, 1.5vw, 18px)", color: "rgba(255,255,255,0.7)" }}>
-              Mood2Fit est avant tout une communauté de gens qui se soutiennent. Le sport en est le prétexte.
+              Mood2Fit est avant tout une communauté de gens qui se soutiennent. Le sport en est le moteur.
             </p>
           </motion.div>
         </section>
@@ -167,7 +167,7 @@ export default function CommunautePage() {
                   transition={{ duration: 0.6, delay: i * 0.08 }}
                   className="flex flex-col gap-1 px-8 py-6">
                   <span className="font-roboto font-900 text-white leading-none tracking-[-0.02em]"
-                    style={{ fontSize: "clamp(18px, 2.5vw, 32px)" }}>{s.value}</span>
+                    style={{ fontSize: "clamp(32px, 5vw, 70px)" }}>{s.value}</span>
                   <span className="font-roboto font-400 text-white/70 text-sm">{s.label}</span>
                 </motion.div>
               ))}
