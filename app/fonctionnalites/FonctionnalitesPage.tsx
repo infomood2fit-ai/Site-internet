@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,40 +12,40 @@ const SLIDES = [
   {
     id: "home", bg: "#f72585", img: "/home.png", label: "HOME · ACCUEIL", num: "01 / 03",
     left: [
-      { id:"l1", num:"01 — MOOD",        title:"Je suis chaud",    desc:"T'as l'énergie, faut pas la gâcher. C'est le mood pour aller chercher quelque chose que t'avais jamais fait.",      tx:0.4,  ty:0.25 },
-      { id:"l2", num:"02 — MOOD",  title:"Dans ma bulle",      desc:"Focus total. Pas de distraction, juste toi et ta séance. Certains jours, c'est tout ce dont t'as besoin.", tx:0.4, ty:0.4 },
-      { id:"l3", num:"03 — TEMPORALITÉ", title:"La commu bouge maintenant", desc:"Vois en temps réel ce que les autres terminent. Rien de plus motivant que de savoir que t'es pas seul.",          tx:0.58, ty:0.60 },
+      { id:"l1", num:"01 — MOOD",        title:"Je suis chaud",              desc:"T'as l'énergie, faut pas la gâcher. C'est le mood pour aller chercher quelque chose que t'avais jamais fait.",  tx:0.2,  ty:0.25 },
+      { id:"l2", num:"02 — MOOD",        title:"Dans ma bulle",              desc:"Focus total. Pas de distraction, juste toi et ta séance. Certains jours, c'est tout ce dont t'as besoin.",       tx:0.4,  ty:0.4  },
+      { id:"l3", num:"03 — TEMPORALITÉ", title:"La commu bouge maintenant",  desc:"Vois en temps réel ce que les autres terminent. Rien de plus motivant que de savoir que t'es pas seul.",         tx:0.58, ty:0.60 },
     ],
     right: [
-      { id:"r1", num:"04 — MOOD",        title:"À mon rythme", desc:"Pas besoin d'être au max pour s'entraîner. Calme aussi, c'est un mood. L'important c'est d'y aller.", tx:0.55, ty:0.25 },
-      { id:"r2", num:"05 — MOOD", title:"Me dépasser",     desc:"T'es là pour souffrir aujourd'hui ? Parfait. L'app le sait et te donne ce qu'il faut pour aller au bout.",        tx:0.55, ty:0.4 },
-      { id:"r3", num:"06 — SIGNALEMENT",  title:"Un problème ? Tu nous le dis.",     desc:"Un bug, un truc qui cloche, le drapeau est là. On préfère le savoir plutôt que tu restes bloqué.",       tx:0.62,  ty:0.79 },
+      { id:"r1", num:"04 — MOOD",        title:"À mon rythme",               desc:"Pas besoin d'être au max pour s'entraîner. Calme aussi, c'est un mood. L'important c'est d'y aller.",            tx:0.55, ty:0.25 },
+      { id:"r2", num:"05 — MOOD",        title:"Me dépasser",                desc:"T'es là pour souffrir aujourd'hui ? Parfait. L'app le sait et te donne ce qu'il faut pour aller au bout.",        tx:0.55, ty:0.4  },
+      { id:"r3", num:"06 — SIGNALEMENT", title:"Un problème ? Tu nous le dis.", desc:"Un bug, un truc qui cloche, le drapeau est là. On préfère le savoir plutôt que tu restes bloqué.",            tx:0.62, ty:0.79 },
     ],
   },
   {
     id: "seance", bg: "#0A0A0F", img: "/sceance.png", label: "SÉANCES · TRAIN", num: "02 / 03",
     left: [
-      { id:"l1", num:"01 — DÉFI XP", title:"Un défi t'attend cette semaine.",              desc:"Chaque semaine un nouveau challenge. Relève-le, gagne des XP, monte de niveau.",   tx:0.4,  ty:0.32 },
-      { id:"l2", num:"02 — CONNEXION",  title:"Connecte-toi, tout s'ouvre.", desc:"Tes progrès, tes défis, ton historique, tout est là dès que tu te connectes.",    tx:0.48,  ty:0.4 },
-      { id:"l3", num:"03 — FILTRES",   title:"Ta séance, tes règles.",           desc:"Niveau, durée, groupe musculaire, filtre et trouve exactement ce dont t'as besoin.",   tx:0.4,  ty:0.48 },
+      { id:"l1", num:"01 — DÉFI XP",    title:"Un défi t'attend cette semaine.", desc:"Chaque semaine un nouveau challenge. Relève-le, gagne des XP, monte de niveau.",          tx:0.4,  ty:0.32 },
+      { id:"l2", num:"02 — CONNEXION",  title:"Connecte-toi, tout s'ouvre.",     desc:"Tes progrès, tes défis, ton historique, tout est là dès que tu te connectes.",             tx:0.48, ty:0.4  },
+      { id:"l3", num:"03 — FILTRES",    title:"Ta séance, tes règles.",           desc:"Niveau, durée, groupe musculaire, filtre et trouve exactement ce dont t'as besoin.",       tx:0.4,  ty:0.48 },
     ],
     right: [
-      { id:"r1", num:"04 — TOUT EN UN COUP D'ŒIL",     title:"Tu sais ce qui t'attend.", desc:"Type, durée, niveau, XP, tout est affiché avant même que tu commences.",tx:0.5,  ty:0.76 },
-      { id:"r2", num:"05 — DÉMARRER ", title:"Pas d'excuse. Un bouton.",       desc:"Mode libre, zéro programme imposé. T'as envie de bouger ? C'est parti.",              tx:0.48,  ty:0.6 },
-      { id:"r3", num:"06 — MOTIVATION ",  title:"Quelqu'un s'entraîne là, maintenant.",    desc:"Vois en direct qui est en séance. Parfois, c'est tout ce qu'il faut pour se lancer.",     tx:0.55, ty:0.80 },
+      { id:"r1", num:"04 — TOUT EN UN COUP D'ŒIL", title:"Tu sais ce qui t'attend.",            desc:"Type, durée, niveau, XP, tout est affiché avant même que tu commences.",          tx:0.5,  ty:0.76 },
+      { id:"r2", num:"05 — DÉMARRER ",             title:"Pas d'excuse. Un bouton.",             desc:"Mode libre, zéro programme imposé. T'as envie de bouger ? C'est parti.",          tx:0.48, ty:0.6  },
+      { id:"r3", num:"06 — MOTIVATION ",           title:"Quelqu'un s'entraîne là, maintenant.", desc:"Vois en direct qui est en séance. Parfois, c'est tout ce qu'il faut pour se lancer.", tx:0.55, ty:0.80 },
     ],
   },
   {
     id: "profil", bg: "#9650CD", img: "/profil.jpeg", label: "PROFIL · YOU", num: "03 / 03",
     left: [
-      { id:"l1", num:"01 — XP & NIVEAU", title:"Tu progresses, on le voit.",         desc:"Chaque séance compte. La barre d'XP te montre exactement où t'en es dans ton parcours.",   tx:0.38, ty:0.23  },
-      { id:"l2", num:"02 — SÉANCES",     title:"Tes séances, ton histoire.",       desc:"Un compteur qui grandit avec toi. Chaque entraînement terminé s'ajoute à ton palmarès.",      tx:0.39, ty:0.31  },
-      { id:"l3", num:"03 — ÉDITER",      title:"Ton profil, c'est toi.", desc:"Pseudo, photo, disciplines, personnalise tout en un tap. C'est ton espace, fais-en ce que tu veux.",          tx:0.62, ty:0.158 },
+      { id:"l1", num:"01 — XP & NIVEAU", title:"Tu progresses, on le voit.",     desc:"Chaque séance compte. La barre d'XP te montre exactement où t'en es dans ton parcours.",  tx:0.38, ty:0.23  },
+      { id:"l2", num:"02 — SÉANCES",     title:"Tes séances, ton histoire.",      desc:"Un compteur qui grandit avec toi. Chaque entraînement terminé s'ajoute à ton palmarès.",   tx:0.39, ty:0.31  },
+      { id:"l3", num:"03 — ÉDITER",      title:"Ton profil, c'est toi.",          desc:"Pseudo, photo, disciplines, personnalise tout en un tap. C'est ton espace, fais-en ce que tu veux.", tx:0.62, ty:0.158 },
     ],
     right: [
-      { id:"r1", num:"04 — POSTS",     title:"Ce que tu partages reste.",           desc:"Tous tes posts, réunis au même endroit. Ta trace dans la communauté.",            tx:0.5,  ty:0.3 },
-      { id:"r2", num:"05 — RÉACTIONS", title:"T'as motivé des gens.", desc:"Chaque réaction que t'as laissée, c'est quelqu'un que t'as encouragé. Ça compte plus qu'on croit.",        tx:0.58, ty:0.31 },
-      { id:"r3", num:"06 — BADGES",    title:"Les défis que t'as relevés.",               desc:"Chaque badge raconte quelque chose. Un effort, un palier, un moment où t'as pas lâché.",              tx:0.38,  ty:0.54 },
+      { id:"r1", num:"04 — POSTS",     title:"Ce que tu partages reste.",         desc:"Tous tes posts, réunis au même endroit. Ta trace dans la communauté.",                     tx:0.5,  ty:0.3  },
+      { id:"r2", num:"05 — RÉACTIONS", title:"T'as motivé des gens.",             desc:"Chaque réaction que t'as laissée, c'est quelqu'un que t'as encouragé. Ça compte plus qu'on croit.", tx:0.58, ty:0.31 },
+      { id:"r3", num:"06 — BADGES",    title:"Les défis que t'as relevés.",        desc:"Chaque badge raconte quelque chose. Un effort, un palier, un moment où t'as pas lâché.", tx:0.38, ty:0.54 },
     ],
   },
 ];
@@ -71,12 +71,50 @@ const activities = [
   { name: "Et plus encore...", desc: "Toutes disciplines" },
 ];
 
+function Dot({ imgRef, tx, ty, color }: {
+  imgRef: React.RefObject<HTMLImageElement | null>;
+  tx: number; ty: number; color: string;
+}) {
+  const [pos, setPos] = useState<{ left: number; top: number } | null>(null);
+
+  const compute = useCallback(() => {
+    const img = imgRef.current;
+    if (!img) return;
+    const imgRect = img.getBoundingClientRect();
+    const parent = img.parentElement;
+    if (!parent) return;
+    const parentRect = parent.getBoundingClientRect();
+    setPos({
+      left: imgRect.left - parentRect.left + tx * imgRect.width,
+      top:  imgRect.top  - parentRect.top  + ty * imgRect.height,
+    });
+  }, [imgRef, tx, ty]);
+
+  useEffect(() => {
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
+  }, [compute]);
+
+  if (!pos) return null;
+  return (
+    <motion.div className="absolute z-20 pointer-events-none"
+      style={{ left: pos.left, top: pos.top, transform: "translate(-50%,-50%)" }}
+      initial={{ opacity:0, scale:0 }} animate={{ opacity:1, scale:1 }} exit={{ opacity:0, scale:0 }}>
+      <motion.div className="rounded-full"
+        style={{ width:16, height:16, background: color, boxShadow:`0 0 14px 5px ${color}80` }}
+        animate={{ scale:[1,1.5,1], opacity:[1,0.6,1] }}
+        transition={{ duration:0.9, repeat:Infinity, ease:"easeInOut" }} />
+    </motion.div>
+  );
+}
+
 function Slide({ s }: { s: typeof SLIDES[0] }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const phoneRef = useRef<HTMLDivElement>(null);
+  const imgDesktopRef = useRef<HTMLImageElement>(null);
+  const imgMobileRef  = useRef<HTMLImageElement>(null);
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
 
-  const isDark     = s.bg === "#0A0A0F";
+  const isDark      = s.bg === "#0A0A0F";
   const titleColors = isDark ? COLORS_DARK : COLORS_LIGHT;
   const numColors   = s.bg === "#0A0A0F" ? NUM_COLORS_DARK : s.bg === "#9650CD" ? NUM_COLORS_VIOLET : NUM_COLORS_LIGHT;
   const dotColor    = isDark ? "#f72585" : "rgba(255,210,0,0.95)";
@@ -109,61 +147,33 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
   );
 
   return (
-    <div ref={containerRef} className="relative w-full h-full flex flex-col">
+    <div className="relative w-full h-full flex flex-col">
 
-      {/* ── Titre centré en haut ── */}
-      <div className="flex flex-col items-center text-center pt-2 pb-3 flex-shrink-0">
-        <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"9px", letterSpacing:"0.3em", textTransform:"uppercase", color: numColors[0], marginBottom:"5px" }}>
-          {s.id === "home" ? "ÉCRAN 01 — ACCUEIL" : s.id === "seance" ? "ÉCRAN 02 — SÉANCE" : "ÉCRAN 03 — PROFIL"}
-        </p>
-        <h2 style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"clamp(20px,2.8vw,38px)", textTransform:"uppercase", letterSpacing:"-0.02em", lineHeight:1, color:"#fff" }}>
-          {s.id === "home" ? <><span style={{color:"#fff"}}>L'accueil,</span> ton point de départ</> :
-           s.id === "seance" ? <><span style={{color: numColors[0]}}>La séance,</span> ton terrain de jeu</> :
-           <><span style={{color:"#fff"}}>Le profil,</span> ton miroir de progrès</>}
-        </h2>
-      </div>
-
-      {/* ── Zone centrale : blocs gauche | mokup | blocs droite (desktop) ── */}
+      {/* ── Zone centrale desktop ── */}
       <div className="hidden md:flex flex-1 items-stretch gap-8 px-8 min-h-0">
-
-        {/* Blocs gauche — centrés entre bord et téléphone */}
         <div className="flex flex-col flex-shrink-0" style={{ width: "26%", paddingLeft: "1%", paddingRight: "2%", justifyContent: "space-between", paddingTop: "5%", paddingBottom: "5%" }}>
           {s.left.map((b, i) => renderCard(b, i, "left"))}
         </div>
 
-        {/* Mokup centré */}
-        <div ref={phoneRef} className="relative flex-1 flex justify-center items-center h-full min-h-0">
+        <div className="relative flex-1 flex justify-center items-center h-full min-h-0">
           <AnimatePresence mode="wait">
-            <motion.div key={`mokup-${s.id}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}
-              style={{ height: "90%", position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Image
+            <motion.div key={`mokup-${s.id}`} initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.3 }}
+              className="relative h-[90%] flex items-center justify-center">
+              <img
+                ref={imgDesktopRef}
                 src={s.id === "home" ? "/mokup/mokup_1.png" : s.id === "seance" ? "/mokup/mokup_2.png" : "/mokup/mokup_3.png"}
                 alt={`Mockup ${s.label}`}
-                width={220} height={476}
-                style={{ height: "100%", width: "auto", objectFit: "contain" }}
+                style={{ height: "100%", width: "auto", objectFit: "contain", display: "block" }}
               />
+              <AnimatePresence>
+                {activeIdx !== null && (
+                  <Dot key={`dot-${activeIdx}-${s.id}`} imgRef={imgDesktopRef} tx={allBubbles[activeIdx].tx} ty={allBubbles[activeIdx].ty} color={dotColor} />
+                )}
+              </AnimatePresence>
             </motion.div>
-          </AnimatePresence>
-
-          {/* Pastille */}
-          <AnimatePresence>
-            {activeIdx !== null && (() => {
-              const b = allBubbles[activeIdx];
-              return (
-                <motion.div key={`dot-${activeIdx}`} className="absolute z-20 pointer-events-none"
-                  style={{ left: `${b.tx * 100}%`, top: `${b.ty * 100}%`, transform: "translate(-50%,-50%)" }}
-                  initial={{ opacity:0, scale:0 }} animate={{ opacity:1, scale:1 }} exit={{ opacity:0, scale:0 }}>
-                  <motion.div className="rounded-full"
-                    style={{ width:16, height:16, background: dotColor, boxShadow:`0 0 14px 5px ${dotColor}80` }}
-                    animate={{ scale:[1,1.5,1], opacity:[1,0.6,1] }}
-                    transition={{ duration:0.9, repeat:Infinity, ease:"easeInOut" }} />
-                </motion.div>
-              );
-            })()}
           </AnimatePresence>
         </div>
 
-        {/* Blocs droite — centrés entre téléphone et bord */}
         <div className="flex flex-col flex-shrink-0" style={{ width: "26%", paddingLeft: "2%", paddingRight: "1%", justifyContent: "space-between", paddingTop: "5%", paddingBottom: "5%" }}>
           {s.right.map((b, i) => renderCard(b, i + 3, "right"))}
         </div>
@@ -172,7 +182,17 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
       {/* ── MOBILE portrait ── */}
       <div className="md:hidden flex flex-col flex-1 min-h-0">
 
-        {/* 3 blocs du haut */}
+        <div className="flex flex-col items-center text-center flex-shrink-0" style={{ paddingTop:"6px", paddingBottom:"4px" }}>
+          <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"8px", letterSpacing:"0.25em", textTransform:"uppercase", color: numColors[0], marginBottom:"3px" }}>
+            {s.id === "home" ? "ÉCRAN 01 — ACCUEIL" : s.id === "seance" ? "ÉCRAN 02 — SÉANCE" : "ÉCRAN 03 — PROFIL"}
+          </p>
+          <h2 style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"clamp(16px,4.5vw,22px)", textTransform:"uppercase", letterSpacing:"-0.02em", lineHeight:1, color:"#fff" }}>
+            {s.id === "home" ? <><span style={{color:"#fff"}}>L'accueil,</span> ton point de départ</> :
+             s.id === "seance" ? <><span style={{color: numColors[0]}}>La séance,</span> ton terrain de jeu</> :
+             <><span style={{color:"#fff"}}>Le profil,</span> ton miroir de progrès</>}
+          </h2>
+        </div>
+
         <div style={{ flexShrink:0, display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"4px", padding:"4px 4px 0" }}>
           {allBubbles.slice(0, 3).map((b, i) => (
             <motion.div key={b.id} onClick={() => setActiveIdx(prev => prev === i ? null : i)}
@@ -184,52 +204,32 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
                 borderRadius:"6px", padding:"8px 9px", cursor:"pointer",
                 transition:"background 0.2s, border 0.2s",
               }}>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:700, fontSize:"6px", letterSpacing:"0.15em", textTransform:"uppercase", color:numColors[i], marginBottom:"3px" }}>
-                — {b.num}
-              </p>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"9px", color:titleColors[i], lineHeight:1.1, letterSpacing:"-0.01em", marginBottom:"3px", textTransform:"uppercase" }}>
-                {b.title}
-              </p>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"7px", color:"rgba(255,255,255,0.65)", lineHeight:1.4 }}>
-                {b.desc}
-              </p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:700, fontSize:"6px", letterSpacing:"0.15em", textTransform:"uppercase", color:numColors[i], marginBottom:"3px" }}>— {b.num}</p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"9px", color:titleColors[i], lineHeight:1.1, letterSpacing:"-0.01em", marginBottom:"3px", textTransform:"uppercase" }}>{b.title}</p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"7px", color:"rgba(255,255,255,0.65)", lineHeight:1.4 }}>{b.desc}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Mokup centré */}
-        <div ref={phoneRef} className="relative flex-1 flex justify-center items-center min-h-0 overflow-hidden">
+        <div className="relative flex-1 flex justify-center items-center min-h-0 overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div key={`mob-mokup-${s.id}`} initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.3 }}
-              style={{ height: "100%", display:"flex", alignItems:"center", justifyContent:"center" }}>
-              <Image
+              className="relative h-full flex items-center justify-center">
+              <img
+                ref={imgMobileRef}
                 src={s.id === "home" ? "/mokup/mokup_1.png" : s.id === "seance" ? "/mokup/mokup_2.png" : "/mokup/mokup_3.png"}
                 alt={`Mockup ${s.label}`}
-                width={200} height={433}
-                style={{ height:"100%", width:"auto", objectFit:"contain", maxHeight:"80%" }}
+                style={{ height:"100%", width:"auto", objectFit:"contain", maxHeight:"80%", display:"block" }}
               />
+              <AnimatePresence>
+                {activeIdx !== null && (
+                  <Dot key={`mob-dot-${activeIdx}-${s.id}`} imgRef={imgMobileRef} tx={allBubbles[activeIdx].tx} ty={allBubbles[activeIdx].ty} color={dotColor} />
+                )}
+              </AnimatePresence>
             </motion.div>
-          </AnimatePresence>
-
-          {/* Pastille mobile */}
-          <AnimatePresence>
-            {activeIdx !== null && (() => {
-              const b = allBubbles[activeIdx];
-              return (
-                <motion.div key={`mob-dot-${activeIdx}`} className="absolute z-20 pointer-events-none"
-                  style={{ left:`${b.tx*100}%`, top:`${b.ty*100}%`, transform:"translate(-50%,-50%)" }}
-                  initial={{ opacity:0, scale:0 }} animate={{ opacity:1, scale:1 }} exit={{ opacity:0, scale:0 }}>
-                  <motion.div className="rounded-full"
-                    style={{ width:14, height:14, background:dotColor, boxShadow:`0 0 12px 4px ${dotColor}80` }}
-                    animate={{ scale:[1,1.5,1], opacity:[1,0.6,1] }}
-                    transition={{ duration:0.9, repeat:Infinity, ease:"easeInOut" }} />
-                </motion.div>
-              );
-            })()}
           </AnimatePresence>
         </div>
 
-        {/* 3 blocs du bas */}
         <div style={{ flexShrink:0, display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"4px", padding:"0 4px 5px" }}>
           {allBubbles.slice(3, 6).map((b, i) => (
             <motion.div key={b.id} onClick={() => setActiveIdx(prev => prev === i+3 ? null : i+3)}
@@ -241,21 +241,14 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
                 borderRadius:"6px", padding:"8px 9px", cursor:"pointer",
                 transition:"background 0.2s, border 0.2s",
               }}>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:700, fontSize:"6px", letterSpacing:"0.15em", textTransform:"uppercase", color:numColors[i+3], marginBottom:"3px" }}>
-                — {b.num}
-              </p>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"9px", color:titleColors[i+3], lineHeight:1.1, letterSpacing:"-0.01em", marginBottom:"3px", textTransform:"uppercase" }}>
-                {b.title}
-              </p>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"7px", color:"rgba(255,255,255,0.65)", lineHeight:1.4 }}>
-                {b.desc}
-              </p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:700, fontSize:"6px", letterSpacing:"0.15em", textTransform:"uppercase", color:numColors[i+3], marginBottom:"3px" }}>— {b.num}</p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"9px", color:titleColors[i+3], lineHeight:1.1, letterSpacing:"-0.01em", marginBottom:"3px", textTransform:"uppercase" }}>{b.title}</p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"7px", color:"rgba(255,255,255,0.65)", lineHeight:1.4 }}>{b.desc}</p>
             </motion.div>
           ))}
         </div>
 
       </div>
-
     </div>
   );
 }
@@ -277,7 +270,6 @@ function FullpageFeatures() {
     setTimeout(() => { isAnimatingRef.current = false; }, 900);
   };
 
-  // ── Touch swipe mobile
   useEffect(() => {
     let touchStartY = 0;
     const onTouchStart = (e: TouchEvent) => { touchStartY = e.touches[0].clientY; };
@@ -312,24 +304,17 @@ function FullpageFeatures() {
       if (e.deltaY > 0) goTo(currentRef.current + 1);
       else if (e.deltaY < 0) goTo(currentRef.current - 1);
     };
-
     const onScroll = () => {
       const el = wrapperRef.current;
       if (!el) return;
-
       const elTop = el.getBoundingClientRect().top + window.scrollY;
       const elBottom = elTop + el.offsetHeight;
       const isInSlides = window.scrollY >= elTop - window.innerHeight * 0.5
                       && window.scrollY < elBottom - window.innerHeight * 0.5;
-
       if (!isAnimatingRef.current) {
-        if (isInSlides) {
-          window.dispatchEvent(new Event("slides-enter"));
-        } else {
-          window.dispatchEvent(new Event("slides-leave"));
-        }
+        if (isInSlides) window.dispatchEvent(new Event("slides-enter"));
+        else window.dispatchEvent(new Event("slides-leave"));
       }
-
       if (isAnimatingRef.current) return;
       const scrolled = window.scrollY - elTop;
       if (scrolled < 0) return;
@@ -337,7 +322,6 @@ function FullpageFeatures() {
       const clamped = Math.max(0, Math.min(SLIDES.length - 1, idx));
       if (clamped !== currentRef.current) { currentRef.current = clamped; setCurrent(clamped); }
     };
-
     window.addEventListener("wheel", onWheel, { passive: false });
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
@@ -348,6 +332,7 @@ function FullpageFeatures() {
   }, []);
 
   const s = SLIDES[current];
+  const numColors = s.bg === "#0A0A0F" ? NUM_COLORS_DARK : s.bg === "#9650CD" ? NUM_COLORS_VIOLET : NUM_COLORS_LIGHT;
 
   return (
     <div ref={wrapperRef} style={{ height: `${SLIDES.length * 100}vh` }}>
@@ -363,6 +348,20 @@ function FullpageFeatures() {
           </div>
         )}
 
+        {/* ── Titre desktop — absolute top:8px par rapport au sticky container ── */}
+        <div className="hidden md:flex flex-col items-center text-center"
+          style={{ position:"absolute", top:"8px", left:0, right:0, zIndex:40 }}>
+          <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"9px", letterSpacing:"0.3em", textTransform:"uppercase", color: numColors[0], marginBottom:"5px" }}>
+            {s.id === "home" ? "ÉCRAN 01 — ACCUEIL" : s.id === "seance" ? "ÉCRAN 02 — SÉANCE" : "ÉCRAN 03 — PROFIL"}
+          </p>
+          <h2 style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"clamp(20px,2.8vw,38px)", textTransform:"uppercase", letterSpacing:"-0.02em", lineHeight:1, color:"#fff" }}>
+            {s.id === "home" ? <><span style={{color:"#fff"}}>L'accueil,</span> ton point de départ</> :
+             s.id === "seance" ? <><span style={{color: numColors[0]}}>La séance,</span> ton terrain de jeu</> :
+             <><span style={{color:"#fff"}}>Le profil,</span> ton miroir de progrès</>}
+          </h2>
+        </div>
+
+        {/* Slide — blocs + mockup inchangés */}
         <div className="absolute inset-0 z-10" style={{ padding:"0", paddingTop:"64px" }} id="slide-wrapper">
           <Slide s={s} />
         </div>
