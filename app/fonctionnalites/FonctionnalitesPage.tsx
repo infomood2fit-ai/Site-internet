@@ -13,39 +13,39 @@ const SLIDES = [
     id: "home", bg: "#f72585", img: "/home.png", label: "HOME · ACCUEIL", num: "01 / 03",
     left: [
       { id:"l1", num:"01 — MOOD",        title:"Je suis chaud",              desc:"T'as l'énergie, faut pas la gâcher. C'est le mood pour aller chercher quelque chose que t'avais jamais fait.",  tx:0.2,  ty:0.25 },
-      { id:"l2", num:"02 — MOOD",        title:"Dans ma bulle",              desc:"Focus total. Pas de distraction, juste toi et ta séance. Certains jours, c'est tout ce dont t'as besoin.",       tx:0.4,  ty:0.4  },
+      { id:"l2", num:"02 — MOOD",        title:"Dans ma bulle",              desc:"Focus total. Pas de distraction, juste toi et ta séance. Certains jours, c'est tout ce dont t'as besoin.",       tx:0.2,  ty:0.38  },
       { id:"l3", num:"03 — TEMPORALITÉ", title:"La commu bouge maintenant",  desc:"Vois en temps réel ce que les autres terminent. Rien de plus motivant que de savoir que t'es pas seul.",         tx:0.58, ty:0.60 },
     ],
     right: [
-      { id:"r1", num:"04 — MOOD",        title:"À mon rythme",               desc:"Pas besoin d'être au max pour s'entraîner. Calme aussi, c'est un mood. L'important c'est d'y aller.",            tx:0.55, ty:0.25 },
-      { id:"r2", num:"05 — MOOD",        title:"Me dépasser",                desc:"T'es là pour souffrir aujourd'hui ? Parfait. L'app le sait et te donne ce qu'il faut pour aller au bout.",        tx:0.55, ty:0.4  },
-      { id:"r3", num:"06 — SIGNALEMENT", title:"Un problème ? Tu nous le dis.", desc:"Un bug, un truc qui cloche, le drapeau est là. On préfère le savoir plutôt que tu restes bloqué.",            tx:0.62, ty:0.79 },
+      { id:"r1", num:"04 — MOOD",        title:"À mon rythme",               desc:"Pas besoin d'être au max pour s'entraîner. Calme aussi, c'est un mood. L'important c'est d'y aller.",            tx:0.6, ty:0.25 },
+      { id:"r2", num:"05 — MOOD",        title:"Me dépasser",                desc:"T'es là pour souffrir aujourd'hui ? Parfait. L'app le sait et te donne ce qu'il faut pour aller au bout.",        tx:0.6, ty:0.38  },
+      { id:"r3", num:"06 — SIGNALEMENT", title:"Un problème ? Tu nous le dis.", desc:"Un bug, un truc qui cloche, le drapeau est là. On préfère le savoir plutôt que tu restes bloqué.",            tx:0.81, ty:0.81 },
     ],
   },
   {
     id: "seance", bg: "#0A0A0F", img: "/sceance.png", label: "SÉANCES · TRAIN", num: "02 / 03",
     left: [
-      { id:"l1", num:"01 — DÉFI XP",    title:"Un défi t'attend cette semaine.", desc:"Chaque semaine un nouveau challenge. Relève-le, gagne des XP, monte de niveau.",          tx:0.4,  ty:0.32 },
-      { id:"l2", num:"02 — CONNEXION",  title:"Connecte-toi, tout s'ouvre.",     desc:"Tes progrès, tes défis, ton historique, tout est là dès que tu te connectes.",             tx:0.48, ty:0.4  },
-      { id:"l3", num:"03 — FILTRES",    title:"Ta séance, tes règles.",           desc:"Niveau, durée, groupe musculaire, filtre et trouve exactement ce dont t'as besoin.",       tx:0.4,  ty:0.48 },
+      { id:"l1", num:"01 — DÉFI XP",    title:"Un défi t'attend cette semaine.", desc:"Chaque semaine un nouveau challenge. Relève-le, gagne des XP, monte de niveau.",          tx:0.15,  ty:0.17 },
+      { id:"l2", num:"02 — CONNEXION",  title:"Connecte-toi, tout s'ouvre.",     desc:"Tes progrès, tes défis, ton historique, tout est là dès que tu te connectes.",             tx:0.46, ty:0.39  },
+      { id:"l3", num:"03 — FILTRES",    title:"Ta séance, tes règles.",           desc:"Niveau, durée, groupe musculaire, filtre et trouve exactement ce dont t'as besoin.",       tx:0.15,  ty:0.48 },
     ],
     right: [
-      { id:"r1", num:"04 — TOUT EN UN COUP D'ŒIL", title:"Tu sais ce qui t'attend.",            desc:"Type, durée, niveau, XP, tout est affiché avant même que tu commences.",          tx:0.5,  ty:0.76 },
-      { id:"r2", num:"05 — DÉMARRER ",             title:"Pas d'excuse. Un bouton.",             desc:"Mode libre, zéro programme imposé. T'as envie de bouger ? C'est parti.",          tx:0.48, ty:0.6  },
-      { id:"r3", num:"06 — MOTIVATION ",           title:"Quelqu'un s'entraîne là, maintenant.", desc:"Vois en direct qui est en séance. Parfois, c'est tout ce qu'il faut pour se lancer.", tx:0.55, ty:0.80 },
+      { id:"r1", num:"04 — TOUT EN UN COUP D'ŒIL", title:"Tu sais ce qui t'attend.",            desc:"Type, durée, niveau, XP, tout est affiché avant même que tu commences.",          tx:0.5,  ty:0.79 },
+      { id:"r2", num:"05 — DÉMARRER ",             title:"Pas d'excuse. Un bouton.",             desc:"Mode libre, zéro programme imposé. T'as envie de bouger ? C'est parti.",          tx:0.46, ty:0.62  },
+      { id:"r3", num:"06 — MOTIVATION ",           title:"Quelqu'un s'entraîne là, maintenant.", desc:"Vois en direct qui est en séance. Parfois, c'est tout ce qu'il faut pour se lancer.", tx:0.61, ty:0.83 },
     ],
   },
   {
     id: "profil", bg: "#9650CD", img: "/profil.jpeg", label: "PROFIL · YOU", num: "03 / 03",
     left: [
-      { id:"l1", num:"01 — XP & NIVEAU", title:"Tu progresses, on le voit.",     desc:"Chaque séance compte. La barre d'XP te montre exactement où t'en es dans ton parcours.",  tx:0.38, ty:0.23  },
-      { id:"l2", num:"02 — SÉANCES",     title:"Tes séances, ton histoire.",      desc:"Un compteur qui grandit avec toi. Chaque entraînement terminé s'ajoute à ton palmarès.",   tx:0.39, ty:0.31  },
-      { id:"l3", num:"03 — ÉDITER",      title:"Ton profil, c'est toi.",          desc:"Pseudo, photo, disciplines, personnalise tout en un tap. C'est ton espace, fais-en ce que tu veux.", tx:0.62, ty:0.158 },
+      { id:"l1", num:"01 — XP & NIVEAU", title:"Tu progresses, on le voit.",     desc:"Chaque séance compte. La barre d'XP te montre exactement où t'en es dans ton parcours.",  tx:0.13, ty:0.2  },
+      { id:"l2", num:"02 — SÉANCES",     title:"Tes séances, ton histoire.",      desc:"Un compteur qui grandit avec toi. Chaque entraînement terminé s'ajoute à ton palmarès.",   tx:0.17, ty:0.31  },
+      { id:"l3", num:"03 — ÉDITER",      title:"Ton profil, c'est toi.",          desc:"Pseudo, photo, disciplines, personnalise tout en un tap. C'est ton espace, fais-en ce que tu veux.", tx:0.8, ty:0.13 },
     ],
     right: [
-      { id:"r1", num:"04 — POSTS",     title:"Ce que tu partages reste.",         desc:"Tous tes posts, réunis au même endroit. Ta trace dans la communauté.",                     tx:0.5,  ty:0.3  },
-      { id:"r2", num:"05 — RÉACTIONS", title:"T'as motivé des gens.",             desc:"Chaque réaction que t'as laissée, c'est quelqu'un que t'as encouragé. Ça compte plus qu'on croit.", tx:0.58, ty:0.31 },
-      { id:"r3", num:"06 — BADGES",    title:"Les défis que t'as relevés.",        desc:"Chaque badge raconte quelque chose. Un effort, un palier, un moment où t'as pas lâché.", tx:0.38, ty:0.54 },
+      { id:"r1", num:"04 — POSTS",     title:"Ce que tu partages reste.",         desc:"Tous tes posts, réunis au même endroit. Ta trace dans la communauté.",                     tx:0.45,  ty:0.31  },
+      { id:"r2", num:"05 — RÉACTIONS", title:"T'as motivé des gens.",             desc:"Chaque réaction que t'as laissée, c'est quelqu'un que t'as encouragé. Ça compte plus qu'on croit.", tx:0.75, ty:0.31 },
+      { id:"r3", num:"06 — BADGES",    title:"Les défis que t'as relevés.",        desc:"Chaque badge raconte quelque chose. Un effort, un palier, un moment où t'as pas lâché.", tx:0.15, ty:0.54 },
     ],
   },
 ];
@@ -71,6 +71,8 @@ const activities = [
   { name: "Et plus encore...", desc: "Toutes disciplines" },
 ];
 
+// ── Composant pastille responsive ──
+// imgRef = ref sur l'<img>, tx/ty = % de l'image (0→1)
 function Dot({ imgRef, tx, ty, color }: {
   imgRef: React.RefObject<HTMLImageElement | null>;
   tx: number; ty: number; color: string;
@@ -110,6 +112,7 @@ function Dot({ imgRef, tx, ty, color }: {
 }
 
 function Slide({ s }: { s: typeof SLIDES[0] }) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const imgDesktopRef = useRef<HTMLImageElement>(null);
   const imgMobileRef  = useRef<HTMLImageElement>(null);
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
@@ -147,7 +150,19 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
   );
 
   return (
-    <div className="relative w-full h-full flex flex-col">
+    <div ref={containerRef} className="relative w-full h-full flex flex-col">
+
+      {/* ── Titre desktop ── */}
+      <div className="hidden md:flex flex-col items-center text-center pt-0 pb-3 flex-shrink-0">
+        <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"9px", letterSpacing:"0.3em", textTransform:"uppercase", color: numColors[0], marginBottom:"5px" }}>
+          {s.id === "home" ? "ÉCRAN 01 — ACCUEIL" : s.id === "seance" ? "ÉCRAN 02 — SÉANCE" : "ÉCRAN 03 — PROFIL"}
+        </p>
+        <h2 style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"clamp(20px,2.8vw,38px)", textTransform:"uppercase", letterSpacing:"-0.02em", lineHeight:1, color:"#fff" }}>
+          {s.id === "home" ? <><span style={{color:"#fff"}}>L'accueil,</span> ton point de départ</> :
+           s.id === "seance" ? <><span style={{color: numColors[0]}}>La séance,</span> ton terrain de jeu</> :
+           <><span style={{color:"#fff"}}>Le profil,</span> ton miroir de progrès</>}
+        </h2>
+      </div>
 
       {/* ── Zone centrale desktop ── */}
       <div className="hidden md:flex flex-1 items-stretch gap-8 px-8 min-h-0">
@@ -155,6 +170,7 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
           {s.left.map((b, i) => renderCard(b, i, "left"))}
         </div>
 
+        {/* Mokup desktop — pastille relative à l'image réelle */}
         <div className="relative flex-1 flex justify-center items-center h-full min-h-0">
           <AnimatePresence mode="wait">
             <motion.div key={`mokup-${s.id}`} initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.3 }}
@@ -167,7 +183,13 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
               />
               <AnimatePresence>
                 {activeIdx !== null && (
-                  <Dot key={`dot-${activeIdx}-${s.id}`} imgRef={imgDesktopRef} tx={allBubbles[activeIdx].tx} ty={allBubbles[activeIdx].ty} color={dotColor} />
+                  <Dot
+                    key={`dot-${activeIdx}-${s.id}`}
+                    imgRef={imgDesktopRef}
+                    tx={allBubbles[activeIdx].tx}
+                    ty={allBubbles[activeIdx].ty}
+                    color={dotColor}
+                  />
                 )}
               </AnimatePresence>
             </motion.div>
@@ -182,6 +204,7 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
       {/* ── MOBILE portrait ── */}
       <div className="md:hidden flex flex-col flex-1 min-h-0">
 
+        {/* Titre mobile tout en haut */}
         <div className="flex flex-col items-center text-center flex-shrink-0" style={{ paddingTop:"6px", paddingBottom:"4px" }}>
           <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"8px", letterSpacing:"0.25em", textTransform:"uppercase", color: numColors[0], marginBottom:"3px" }}>
             {s.id === "home" ? "ÉCRAN 01 — ACCUEIL" : s.id === "seance" ? "ÉCRAN 02 — SÉANCE" : "ÉCRAN 03 — PROFIL"}
@@ -193,6 +216,7 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
           </h2>
         </div>
 
+        {/* 3 blocs du haut */}
         <div style={{ flexShrink:0, display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"4px", padding:"4px 4px 0" }}>
           {allBubbles.slice(0, 3).map((b, i) => (
             <motion.div key={b.id} onClick={() => setActiveIdx(prev => prev === i ? null : i)}
@@ -204,13 +228,20 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
                 borderRadius:"6px", padding:"8px 9px", cursor:"pointer",
                 transition:"background 0.2s, border 0.2s",
               }}>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:700, fontSize:"6px", letterSpacing:"0.15em", textTransform:"uppercase", color:numColors[i], marginBottom:"3px" }}>— {b.num}</p>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"9px", color:titleColors[i], lineHeight:1.1, letterSpacing:"-0.01em", marginBottom:"3px", textTransform:"uppercase" }}>{b.title}</p>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"7px", color:"rgba(255,255,255,0.65)", lineHeight:1.4 }}>{b.desc}</p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:700, fontSize:"6px", letterSpacing:"0.15em", textTransform:"uppercase", color:numColors[i], marginBottom:"3px" }}>
+                — {b.num}
+              </p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"9px", color:titleColors[i], lineHeight:1.1, letterSpacing:"-0.01em", marginBottom:"3px", textTransform:"uppercase" }}>
+                {b.title}
+              </p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"7px", color:"rgba(255,255,255,0.65)", lineHeight:1.4 }}>
+                {b.desc}
+              </p>
             </motion.div>
           ))}
         </div>
 
+        {/* Mokup mobile — pastille relative à l'image réelle */}
         <div className="relative flex-1 flex justify-center items-center min-h-0 overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div key={`mob-mokup-${s.id}`} initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.3 }}
@@ -223,13 +254,20 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
               />
               <AnimatePresence>
                 {activeIdx !== null && (
-                  <Dot key={`mob-dot-${activeIdx}-${s.id}`} imgRef={imgMobileRef} tx={allBubbles[activeIdx].tx} ty={allBubbles[activeIdx].ty} color={dotColor} />
+                  <Dot
+                    key={`mob-dot-${activeIdx}-${s.id}`}
+                    imgRef={imgMobileRef}
+                    tx={allBubbles[activeIdx].tx}
+                    ty={allBubbles[activeIdx].ty}
+                    color={dotColor}
+                  />
                 )}
               </AnimatePresence>
             </motion.div>
           </AnimatePresence>
         </div>
 
+        {/* 3 blocs du bas */}
         <div style={{ flexShrink:0, display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"4px", padding:"0 4px 5px" }}>
           {allBubbles.slice(3, 6).map((b, i) => (
             <motion.div key={b.id} onClick={() => setActiveIdx(prev => prev === i+3 ? null : i+3)}
@@ -241,9 +279,15 @@ function Slide({ s }: { s: typeof SLIDES[0] }) {
                 borderRadius:"6px", padding:"8px 9px", cursor:"pointer",
                 transition:"background 0.2s, border 0.2s",
               }}>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:700, fontSize:"6px", letterSpacing:"0.15em", textTransform:"uppercase", color:numColors[i+3], marginBottom:"3px" }}>— {b.num}</p>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"9px", color:titleColors[i+3], lineHeight:1.1, letterSpacing:"-0.01em", marginBottom:"3px", textTransform:"uppercase" }}>{b.title}</p>
-              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"7px", color:"rgba(255,255,255,0.65)", lineHeight:1.4 }}>{b.desc}</p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:700, fontSize:"6px", letterSpacing:"0.15em", textTransform:"uppercase", color:numColors[i+3], marginBottom:"3px" }}>
+                — {b.num}
+              </p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"9px", color:titleColors[i+3], lineHeight:1.1, letterSpacing:"-0.01em", marginBottom:"3px", textTransform:"uppercase" }}>
+                {b.title}
+              </p>
+              <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"7px", color:"rgba(255,255,255,0.65)", lineHeight:1.4 }}>
+                {b.desc}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -332,7 +376,6 @@ function FullpageFeatures() {
   }, []);
 
   const s = SLIDES[current];
-  const numColors = s.bg === "#0A0A0F" ? NUM_COLORS_DARK : s.bg === "#9650CD" ? NUM_COLORS_VIOLET : NUM_COLORS_LIGHT;
 
   return (
     <div ref={wrapperRef} style={{ height: `${SLIDES.length * 100}vh` }}>
@@ -340,32 +383,15 @@ function FullpageFeatures() {
         <AnimatePresence mode="wait">
           <motion.div key={s.id} className="absolute inset-0" style={{ background: s.bg }} initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.45 }} />
         </AnimatePresence>
-
         {s.bg === "#0A0A0F" && (
           <div className="absolute inset-0 pointer-events-none">
             <div style={{ position:"absolute", top:0, left:0, width:"600px", height:"600px", background:"radial-gradient(circle, rgba(114,9,183,0.1) 0%, transparent 70%)" }} />
             <div style={{ position:"absolute", bottom:0, right:0, width:"500px", height:"500px", background:"radial-gradient(circle, rgba(181,23,158,0.07) 0%, transparent 70%)" }} />
           </div>
         )}
-
-        {/* ── Titre desktop — absolute top:8px par rapport au sticky container ── */}
-        <div className="hidden md:flex flex-col items-center text-center"
-          style={{ position:"absolute", top:"8px", left:0, right:0, zIndex:40 }}>
-          <p style={{ fontFamily:"Roboto,sans-serif", fontWeight:400, fontSize:"9px", letterSpacing:"0.3em", textTransform:"uppercase", color: numColors[0], marginBottom:"5px" }}>
-            {s.id === "home" ? "ÉCRAN 01 — ACCUEIL" : s.id === "seance" ? "ÉCRAN 02 — SÉANCE" : "ÉCRAN 03 — PROFIL"}
-          </p>
-          <h2 style={{ fontFamily:"Roboto,sans-serif", fontWeight:900, fontSize:"clamp(20px,2.8vw,38px)", textTransform:"uppercase", letterSpacing:"-0.02em", lineHeight:1, color:"#fff" }}>
-            {s.id === "home" ? <><span style={{color:"#fff"}}>L'accueil,</span> ton point de départ</> :
-             s.id === "seance" ? <><span style={{color: numColors[0]}}>La séance,</span> ton terrain de jeu</> :
-             <><span style={{color:"#fff"}}>Le profil,</span> ton miroir de progrès</>}
-          </h2>
-        </div>
-
-        {/* Slide — blocs + mockup inchangés */}
         <div className="absolute inset-0 z-10" style={{ padding:"0", paddingTop:"64px" }} id="slide-wrapper">
           <Slide s={s} />
         </div>
-
         <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-30">
           {SLIDES.map((_, i) => (
             <div key={i} onClick={() => goTo(i)} className="rounded-full transition-all duration-300 cursor-pointer" style={{ width:5, height: i===current ? 28:5, background: i===current ? "#fff":"rgba(255,255,255,0.3)" }} />
