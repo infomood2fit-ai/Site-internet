@@ -21,7 +21,7 @@ const N = BASE_SLIDES.length;
 
 function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
   return (
-    <div className="relative overflow-hidden"
+    <div className="relative rounded-3xl"
       style={{ width: "100%", height: "78vh", background: s.color, boxShadow: `0 40px 100px ${s.color}55, 0 0 0 1px ${s.color}` }}>
 
       {/* ── DESKTOP ── */}
