@@ -7,16 +7,36 @@ import { motion } from "framer-motion";
 function PhoneHero() {
   return (
     <div className="relative flex items-center justify-center">
-      <div className="absolute rounded-[60px] pointer-events-none"
-        style={{ inset: "-30px", background: "radial-gradient(circle, rgba(247,37,133,0.3), transparent 70%)", filter: "blur(40px)", opacity: 0.8 }} />
-      <div className="relative" style={{ width: "clamp(160px, 21vw, 360px)", zIndex: 1 }}>
+      {/* Glow */}
+      <div
+        className="absolute pointer-events-none rounded-[80px]"
+        style={{
+          inset: "-40px",
+          background:
+            "radial-gradient(circle, rgba(247,37,133,0.28), transparent 72%)",
+          filter: "blur(45px)",
+          opacity: 0.9,
+        }}
+      />
+
+      {/* Mockup */}
+      <div
+        className="relative z-10"
+        style={{
+          width: "320px",
+        }}
+      >
         <Image
           src="/mokup/home_mokup.png"
           alt="Mood2Fit app"
-          width={270}
-          height={584}
-          style={{ width: "100%", height: "auto" }}
+          width={320}
+          height={690}
           priority
+          style={{
+            width: "100%",
+            height: "auto",
+            objectFit: "contain",
+          }}
         />
       </div>
     </div>
@@ -25,66 +45,223 @@ function PhoneHero() {
 
 export default function HomeHero() {
   return (
-    <section className="relative h-screen flex items-center overflow-hidden bg-black">
+    <section className="relative min-h-screen overflow-hidden bg-black">
 
-      {/* Fond street.jpeg */}
+      {/* Background */}
       <div className="absolute inset-0 z-0">
-        <Image src="/street.jpeg" alt="" fill className="object-cover opacity-60" priority />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.7) 85%, #000 100%)" }} />
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(114,9,183,0.15) 0%, transparent 70%)" }} />
+        <Image
+          src="/street.jpeg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-55"
+        />
+
+        {/* Dark overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.75) 82%, #000 100%)",
+          }}
+        />
+
+        {/* Purple ambient light */}
+        <div
+          className="absolute left-[18%] top-[18%] w-[520px] h-[520px] pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(114,9,183,0.14) 0%, transparent 72%)",
+          }}
+        />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-16 pt-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      {/* Content */}
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-8 lg:px-16">
 
-          {/* Gauche — texte */}
+        <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-2">
+
+          {/* LEFT */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -45 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col items-start text-left gap-6"
+            transition={{
+              duration: 1,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="flex flex-col items-start"
           >
-            <h1 className="font-roboto font-900 text-white uppercase leading-[0.88]"
-              style={{ fontSize: "clamp(52px, 7vw, 110px)", letterSpacing: "-0.02em" }}>
-              Le sport<br />est meilleur<br />
-              <span style={{ color: "#f72585" }}>à deux.</span>
+
+            <h1
+              className="uppercase text-white"
+              style={{
+                fontFamily: "Roboto, sans-serif",
+                fontWeight: 900,
+                lineHeight: 0.88,
+                letterSpacing: "-0.04em",
+                fontSize: "96px",
+              }}
+            >
+              LE SPORT
+              <br />
+              EST
+              <br />
+              MEILLEUR
+              <br />
+              <span style={{ color: "#f72585" }}>
+                À DEUX.
+              </span>
             </h1>
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-roboto font-300 text-white/60 tracking-wide"
-              style={{ fontSize: "clamp(14px, 1.5vw, 18px)" }}>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="mt-6 text-white/65"
+              style={{
+                fontSize: "19px",
+                fontWeight: 300,
+                letterSpacing: "0.01em",
+              }}
+            >
               Connectés par l&apos;effort, portés par le collectif.
             </motion.p>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }}
-              className="flex gap-3">
-              <Link href="#" className="flex items-center gap-2.5 px-6 py-3 rounded-full bg-white hover:bg-white/90 active:scale-[0.97] transition-all duration-150" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.2)" }}>
-                <Image src="/app/apple.png" alt="Apple" width={22} height={22} style={{ objectFit: "contain", width: "22px", height: "22px" }} />
-                <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
-                  <span style={{ fontSize: "9px", color: "rgba(0,0,0,0.5)", lineHeight: 1 }}>Télécharger sur</span>
-                  <span style={{ fontSize: "14px", fontWeight: 700, color: "#000", lineHeight: 1.2 }}>App Store</span>
+
+            {/* Bientôt disponible */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.55 }}
+              className="mt-10 mb-4 uppercase text-[#f72585]/40"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.28em",
+                fontWeight: 500,
+              }}
+            >
+              Bientôt disponible sur les stores
+            </motion.p>
+
+            {/* Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="flex gap-4"
+            >
+
+              {/* Apple */}
+              <Link
+                href="#"
+                className="flex items-center gap-3 rounded-full bg-white px-6 py-3 transition-all duration-200 hover:scale-[1.02]"
+                style={{
+                  boxShadow: "0 6px 20px rgba(0,0,0,0.28)",
+                }}
+              >
+                <Image
+                  src="/app/apple.png"
+                  alt="Apple"
+                  width={24}
+                  height={24}
+                />
+
+                <div className="flex flex-col">
+                  <span
+                    style={{
+                      fontSize: "9px",
+                      color: "rgba(0,0,0,0.55)",
+                      lineHeight: 1,
+                    }}
+                  >
+                    Télécharger sur
+                  </span>
+
+                  <span
+                    style={{
+                      fontSize: "15px",
+                      fontWeight: 700,
+                      color: "#000",
+                    }}
+                  >
+                    App Store
+                  </span>
                 </div>
               </Link>
-              <Link href="#" className="flex items-center gap-2.5 px-6 py-3 rounded-full active:scale-[0.97] transition-all duration-150" style={{ background: "#000", border: "2px solid rgba(255,255,255,0.15)" }}>
-                <Image src="/app/android.png" alt="Google Play" width={22} height={22} style={{ objectFit: "contain", width: "22px", height: "22px" }} />
-                <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
-                  <span style={{ fontSize: "9px", color: "rgba(255,255,255,0.6)", lineHeight: 1 }}>Disponible sur</span>
-                  <span style={{ fontSize: "14px", fontWeight: 700, color: "#fff", lineHeight: 1.2 }}>Google Play</span>
+
+              {/* Google */}
+              <Link
+                href="#"
+                className="flex items-center gap-3 rounded-full px-6 py-3 transition-all duration-200 hover:scale-[1.02]"
+                style={{
+                  background: "#050505",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  boxShadow: "0 6px 20px rgba(0,0,0,0.3)",
+                }}
+              >
+                <Image
+                  src="/app/android.png"
+                  alt="Google Play"
+                  width={24}
+                  height={24}
+                />
+
+                <div className="flex flex-col">
+                  <span
+                    style={{
+                      fontSize: "9px",
+                      color: "rgba(255,255,255,0.55)",
+                      lineHeight: 1,
+                    }}
+                  >
+                    Disponible sur
+                  </span>
+
+                  <span
+                    style={{
+                      fontSize: "15px",
+                      fontWeight: 700,
+                      color: "#fff",
+                    }}
+                  >
+                    Google Play
+                  </span>
                 </div>
               </Link>
+
             </motion.div>
           </motion.div>
 
-          {/* Droite — téléphone semi-visible */}
+          {/* RIGHT */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 45 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden md:flex justify-center items-end"
-            style={{ position: "relative", bottom: "-25%" }}
+            transition={{
+              duration: 1,
+              delay: 0.25,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="relative hidden lg:flex items-center justify-center"
           >
-            <motion.div animate={{ y: [0, -16, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}>
-              <PhoneHero />
-            </motion.div>
+
+            {/* Fixed stable positioning */}
+            <div
+              style={{
+                transform: "translateY(200px)",
+              }}
+            >
+              <motion.div
+                animate={{ y: [0, -12, 0] }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <PhoneHero />
+              </motion.div>
+            </div>
+
           </motion.div>
 
         </div>
