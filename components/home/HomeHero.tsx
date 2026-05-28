@@ -90,7 +90,7 @@ export default function HomeHero() {
               duration: 1,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="flex flex-col items-start"
+            className="flex flex-col items-start pt-24"
           >
 
             <h1
@@ -114,45 +114,48 @@ export default function HomeHero() {
               </span>
             </h1>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="mt-6 text-white/65"
-              style={{
-                fontSize: "19px",
-                fontWeight: 300,
-                letterSpacing: "0.01em",
-              }}
-            >
-              Connectés par l&apos;effort, portés par le collectif.
-            </motion.p>
+      
+<div className="mt-6 flex flex-col items-center">
 
-            {/* Bientôt disponible */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.55 }}
-              className="mt-10 mb-4 uppercase text-[#f72585]/40"
-              style={{
-                fontSize: "11px",
-                letterSpacing: "0.28em",
-                fontWeight: 500,
-              }}
-            >
-              Bientôt disponible sur les stores
-            </motion.p>
+  <motion.p
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.4 }}
+    className="text-center text-white/65"
+    style={{
+      fontSize: "19px",
+      fontWeight: 300,
+      letterSpacing: "0.01em",
+    }}
+  >
+    Connectés par l&apos;effort, portés par le collectif.
+  </motion.p>
 
-            {/* Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="flex gap-4"
-            >
+  {/* Bientôt disponible */}
+  <motion.p
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.55 }}
+    className="mt-10 mb-4 text-center uppercase text-[#f72585]/40"
+    style={{
+      fontSize: "11px",
+      letterSpacing: "0.28em",
+      fontWeight: 500,
+    }}
+  >
+    Bientôt disponible sur les stores
+  </motion.p>
 
-              {/* Apple */}
-              <Link
+  {/* Buttons */}
+  <motion.div
+    initial={{ opacity: 0, y: 18 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.7 }}
+    className="flex justify-center gap-4"
+  >
+
+    {/* Apple */}
+    <Link
                 href="#"
                 className="flex items-center gap-3 rounded-full bg-white px-6 py-3 transition-all duration-200 hover:scale-[1.02]"
                 style={{
@@ -189,8 +192,8 @@ export default function HomeHero() {
                 </div>
               </Link>
 
-              {/* Google */}
-              <Link
+    {/* Google */}
+    <Link
                 href="#"
                 className="flex items-center gap-3 rounded-full px-6 py-3 transition-all duration-200 hover:scale-[1.02]"
                 style={{
@@ -228,6 +231,36 @@ export default function HomeHero() {
                   </span>
                 </div>
               </Link>
+
+  </motion.div>
+</div>
+
+
+            {/* Bientôt disponible */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.55 }}
+              className="mt-10 mb-4 w-full text-center uppercase text-[#f72585]/40"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.28em",
+                fontWeight: 500,
+              }}
+            >
+  
+            </motion.p>
+
+            {/* Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="flex w-full justify-center gap-4"            
+              >
+
+             
+
 
             </motion.div>
           </motion.div>

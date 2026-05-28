@@ -21,7 +21,7 @@ const N = BASE_SLIDES.length;
 
 function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
   return (
-    <div className="relative rounded-3xl"
+    <div className="relative overflow-hidden"
       style={{ width: "100%", height: "78vh", background: s.color, boxShadow: `0 40px 100px ${s.color}55, 0 0 0 1px ${s.color}` }}>
 
       {/* ── DESKTOP ── */}
@@ -40,7 +40,7 @@ function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
         </div>
 
         {/* Mokup desktop — next/image */}
-        <div className="absolute pointer-events-none z-20" style={{ bottom: "-75px", right: "60px", width: "clamp(140px, 15vw, 210px)" }}>
+        <div className="absolute pointer-events-none z-20" style={{ bottom: 0, transform: "translateY(35px)", right: "60px", width: "clamp(140px, 15vw, 210px)" }}>
           <Image
             src={MOKUP_MAP[s.id]}
             alt={`Mood2Fit ${s.id}`}
@@ -99,10 +99,11 @@ export default function HomeFeatures() {
   return (
     <section className="relative h-screen bg-white overflow-hidden flex flex-col items-center justify-center" aria-label="Fonctionnalités Mood2Fit">
 
-      <div className="relative flex items-center justify-center w-full" style={{ height: "clamp(300px, 78vh, 78vh)", clipPath: "inset(0 0 -200px 0)" }}>
+      <div className="relative flex items-center justify-center w-full overflow-visible" style={{ height: "78vh" }}>
         <div className="relative z-10 w-[92vw] md:w-[76vw]">
           <AnimatePresence custom={dir} mode="wait">
             <motion.div key={current} custom={dir} variants={variants} initial="enter" animate="center" exit="exit"
+              style={{ willChange: "transform", backfaceVisibility: "hidden" }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}>
               <SlideCard s={BASE_SLIDES[current]} />
             </motion.div>
