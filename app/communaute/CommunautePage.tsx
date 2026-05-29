@@ -72,7 +72,7 @@ const mapUsers = [
 const stats = [
   { value: " 70+", label: "membres actifs" },
   { value: "100", label: " séances partagées" },
-  { value: "800", label: "park Street-Workout en France" },
+  { value: "800", label: "parc Street-Workout en France" },
   { value: "5 600+", label: "salle de sport en France" },
 ];
 
