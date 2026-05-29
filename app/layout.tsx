@@ -14,7 +14,7 @@ const roboto = Roboto({
 export function generateMetadata(): Metadata {
   return {
   // ── Base URL — requis pour que Next.js construise les URLs absolues (og:image etc.)
-  metadataBase: new URL("https://mood2fit.app"),
+  metadataBase: new URL("https://mood2fit.com"),
 
   title: {
     default: "Mood2Fit",
@@ -41,7 +41,7 @@ export function generateMetadata(): Metadata {
     title: "Mood2Fit — Trouve ton partenaire d'entraînement",
     description:
       "L'app qui matche ton énergie du jour avec le bon partenaire de sport.",
-    url: "https://mood2fit.app",
+    url: "https://mood2fit.com",
     siteName: "Mood2Fit",
     locale: "fr_FR",
     type: "website",

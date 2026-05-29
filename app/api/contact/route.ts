@@ -13,7 +13,6 @@ const ratelimit = new Ratelimit({
 export async function POST(req: NextRequest) {
   try {
 
-    // ── 1. Rate limiting
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "anonymous";
     const { success } = await ratelimit.limit(`contact:${ip}`);
     if (!success) {
@@ -23,7 +22,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── 2. Lecture body
     const body = await req.json();
     const { name, email, subject, message } = body;
 
@@ -31,12 +29,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Champs manquants" }, { status: 400 });
     }
 
-    // ── 3. Honeypot anti-bot
     if (isBot(body._trap)) {
       return NextResponse.json({ success: true });
     }
 
-    // ── 4. Sanitization
     const cleanName    = sanitizeText(name, 80);
     const cleanEmail   = sanitizeEmail(email);
     const cleanSubject = sanitizeText(subject, 120);
@@ -46,9 +42,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Email invalide" }, { status: 400 });
     }
 
-    // ── 5. Envoi via lib/email.ts
+    // ── Email vers hello@mood2fit.com ✅
     const result = await sendEmail({
-      to: [{ email: "alfayedmsa45@hotmail.com" }],
+      to: [{ email: "hello@mood2fit.com" }],
       replyTo: { email: cleanEmail, name: cleanName },
       subject: `[Contact] ${cleanSubject} — ${cleanName}`,
       htmlContent: getEmailHtml({ name: cleanName, email: cleanEmail, subject: cleanSubject, message: cleanMessage }),
@@ -125,7 +121,7 @@ function getEmailHtml({ name, email, subject, message }: {
           </tr>
           <tr>
             <td style="background:#000;padding:24px;text-align:center;">
-              <p style="font-size:12px;color:rgba(255,255,255,0.3);margin:0;">Message reçu via le formulaire de contact — mood2fit.app</p>
+              <p style="font-size:12px;color:rgba(255,255,255,0.3);margin:0;">Message reçu via le formulaire de contact — mood2fit.com</p>
             </td>
           </tr>
         </table>

@@ -12,7 +12,7 @@ test.describe('Formulaire Contact', () => {
   test('envoi réussi affiche le message de confirmation', async ({ page }) => {
     // Remplir le formulaire
     await page.fill('input[placeholder="Alex Martin"]', 'Test User');
-    await page.fill('input[placeholder="alex@exemple.com"]', 'test@mood2fit.app');
+    await page.fill('input[placeholder="alex@exemple.com"]', 'test@mood2fit.com');
     await page.selectOption('select', 'Question générale');
     await page.fill('textarea', 'Ceci est un message de test avec plus de 20 caractères.');
 

@@ -27,5 +27,5 @@ export const env = {
   get CRON_SECRET() { return process.env.CRON_SECRET ?? ""; },
 
   // ── App
-  get APP_URL() { return process.env.NEXT_PUBLIC_APP_URL ?? "https://mood2fit.app"; },
+  get APP_URL() { return process.env.NEXT_PUBLIC_APP_URL ?? "https://mood2fit.com"; },
 };
