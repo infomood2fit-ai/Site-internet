@@ -256,7 +256,7 @@ export default function ActualitePage() {
 
   // ── Fetch articles depuis public/articles.json ──
   useEffect(() => {
-    fetch("/articles.json")
+    fetch("/api/articles")
       .then((res) => res.json())
       .then((data) => {
         setRows(data.articles || {});
