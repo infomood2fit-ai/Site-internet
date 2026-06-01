@@ -38,31 +38,22 @@ export function generateMetadata(): Metadata {
 
   // ── Open Graph — preview sur Instagram, LinkedIn, WhatsApp, Facebook
   openGraph: {
-    title: "Mood2Fit — Trouve ton partenaire d'entraînement",
+    title: "Mood2Fit — Trouve ta scéeance de sport idéale",
     description:
-      "L'app qui matche ton énergie du jour avec le bon partenaire de sport.",
+      "L'app qui matche ton énergie du jour avec ta scéance de sport.",
     url: "https://mood2fit.com",
     siteName: "Mood2Fit",
     locale: "fr_FR",
     type: "website",
-    images: [
-      {
-        url: "/og-image.png", // ← à créer : 1200x630px avec logo + tagline
-        width: 1200,
-        height: 630,
-        alt: "Mood2Fit — Trouve ton partenaire d'entraînement",
-      },
-    ],
   },
 
   // ── Twitter / X
   twitter: {
     card: "summary_large_image",
-    title: "Mood2Fit — Trouve ton partenaire d'entraînement",
+    title: "Mood2Fit — Trouve ta scéeance de sport idéale",
     description:
-      "L'app qui matche ton énergie du jour avec le bon partenaire de sport.",
-    images: ["/og-image.png"],
-  },
+      "L'app qui matche ton énergie du jour avec ta scéance de sport."
+},
 
   // ── Robots
   robots: {
