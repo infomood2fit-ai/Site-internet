@@ -90,9 +90,8 @@ export default function RootLayout({
     <html lang="fr" className={roboto.variable}>
       <body className="font-roboto bg-[#080010] text-text-main antialiased overflow-x-hidden">
         {children}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
     </html>
   );
 }
-
