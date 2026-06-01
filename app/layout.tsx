@@ -1,6 +1,8 @@
 import * as Sentry from "@sentry/nextjs";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 import "./globals.css";
 
 const roboto = Roboto({
@@ -89,6 +91,8 @@ export default function RootLayout({
       <body className="font-roboto bg-[#080010] text-text-main antialiased overflow-x-hidden">
         {children}
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
     </html>
   );
 }
+
