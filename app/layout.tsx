@@ -40,7 +40,7 @@ export function generateMetadata(): Metadata {
 
   // ── Open Graph — preview sur Instagram, LinkedIn, WhatsApp, Facebook
   openGraph: {
-    title: "Mood2Fit — Trouve ta scéeance de sport idéale",
+    title: "Mood2Fit — Trouve ta scéance de sport idéale",
     description:
       "L'app qui matche ton énergie du jour avec ta scéance de sport.",
     url: "https://mood2fit.com",
@@ -52,7 +52,7 @@ export function generateMetadata(): Metadata {
   // ── Twitter / X
   twitter: {
     card: "summary_large_image",
-    title: "Mood2Fit — Trouve ta scéeance de sport idéale",
+    title: "Mood2Fit — Trouve ta scéance de sport idéale",
     description:
       "L'app qui matche ton énergie du jour avec ta scéance de sport."
 },
@@ -90,8 +90,27 @@ export default function RootLayout({
     <html lang="fr" className={roboto.variable}>
       <body className="font-roboto bg-[#080010] text-text-main antialiased overflow-x-hidden">
         {children}
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       </body>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MobileApplication",
+            "name": "Mood2Fit",
+            "description": "L'app qui matche ton énergie du jour avec tes scéances de sport. Musculation, street workout, entraîne-toi avec des gens qui te ressemblent.",
+            "url": "https://mood2fit.com",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "iOS, Android",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          })
+        }}
+      />
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
     </html>
   );
 }
