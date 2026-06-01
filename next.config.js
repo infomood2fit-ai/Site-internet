@@ -43,8 +43,8 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              // Scripts : soi-même + Next.js inline (nonce géré par Next)
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              // Scripts : soi-même + Next.js inline + Google Analytics/GTM
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
               "worker-src 'self' blob:",
               // Styles : soi-même + inline (Tailwind)
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
@@ -52,8 +52,8 @@ const nextConfig = {
               "font-src 'self' https://fonts.gstatic.com",
               // Images : soi-même + Unsplash (articles) + ibb.co (logo newsletter)
               "img-src 'self' data: blob: https: http:",
-              // Connexions API autorisées
-              "connect-src 'self' https://api.brevo.com https://newsapi.org https://gnews.io",
+              // Connexions API autorisées + Google Analytics
+              "connect-src 'self' https://api.brevo.com https://newsapi.org https://gnews.io https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
               // Frames interdites
               "frame-src 'none'",
               // Objets interdits
