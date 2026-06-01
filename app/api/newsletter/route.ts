@@ -5,8 +5,11 @@ import { sanitizeEmail, sanitizeText, isValidEmail, isBot } from "@/lib/sanitize
 import { addContact, sendNewsletterConfirmation } from "@/lib/email";
 
 const ratelimit = new Ratelimit({
-  redis: Redis.fromEnv(),
-  limiter: Ratelimit.slidingWindow(3, "60 m"),
+  redis: new Redis({
+    url: process.env.UPSTASH_REDIS_REST_URL!,
+    token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+  }),
+  limiter: Ratelimit.slidingWindow(5, "10 m"),
   analytics: true,
 });
 
@@ -15,6 +18,7 @@ export async function POST(req: NextRequest) {
 
     // ── 1. Rate limiting
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "anonymous";
+    console.log("IP détectée:", ip); // ajoute ça temporairement
     const { success } = await ratelimit.limit(`newsletter:${ip}`);
     if (!success) {
       return NextResponse.json(

@@ -46,15 +46,17 @@ function NewsletterBanner() {
   const [submitted, setSubmitted] = useState(false);
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({ resolver: zodResolver(schema) });
   const onSubmit = async (data: FormData) => {
-    try {
-      await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: data.email }),
-      });
-    } catch {}
-    setSubmitted(true);
-  };
+  try {
+    const res = await fetch("/api/newsletter", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: data.email }),
+    });
+    if (res.ok || res.status === 409) {
+      setSubmitted(true);
+    }
+  } catch {}
+};
   return (
     <div className="mt-20 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row md:items-center gap-8" style={{ background: "#f72585" }}>
       <div className="flex flex-col gap-3 flex-1">
