@@ -53,8 +53,7 @@ const nextConfig = {
               // Images : soi-même + Unsplash (articles) + ibb.co (logo newsletter)
               "img-src 'self' data: blob: https: http:",
               // Connexions API autorisées + Google Analytics
-              "connect-src 'self' https://api.brevo.com https://newsapi.org https://gnews.io https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
-              // Frames interdites
+              "connect-src 'self' https://api.brevo.com https://newsapi.org https://gnews.io https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://region1.google-analytics.com",              // Frames interdites
               "frame-src 'none'",
               // Objets interdits
               "object-src 'none'",
