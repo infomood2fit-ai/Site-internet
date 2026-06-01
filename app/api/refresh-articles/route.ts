@@ -1,6 +1,9 @@
 import { Redis } from "@upstash/redis";
 import { NextResponse } from "next/server";
 
+export const dynamic = 'force-dynamic';
+
+
 const redis = new Redis({
   url: process.env.UPSTASH_KV_REST_API_URL!,
   token: process.env.UPSTASH_KV_REST_API_TOKEN!,
@@ -9,7 +12,7 @@ const redis = new Redis({
 const NEWSAPI_KEY = process.env.NEWSAPI_KEY!;
 const GNEWS_KEY = process.env.GNEWS_KEY!;
 
-// ── BLACKLIST / WHITELIST ──────────────────────────────────────
+// ── BLACKLIST / whitelist ──────────────────────────────────────
 const BLACKLIST = [
   "football", "soccer", "nba", "nfl", "nhl", "tennis", "rugby",
   "betting", "transfer", "ligue 1", "premier league", "champions league",
