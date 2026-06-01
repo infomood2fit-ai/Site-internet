@@ -75,6 +75,13 @@ export function generateMetadata(): Metadata {
       "max-snippet": -1,
     },
   },
+
+  // ── Icons
+icons: {
+  icon: '/icon.png',
+  apple: '/apple-icon.png',
+},
+
     other: {
       ...Sentry.getTraceData(),
     },
