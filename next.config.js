@@ -69,9 +69,6 @@ const nextConfig = {
     ];
   },
 
-  experimental: {
-    optimizeCss: true,
-  },
 
   // ── Image Optimizer — sources autorisées uniquement ───────
   images: {
