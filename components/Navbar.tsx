@@ -78,7 +78,7 @@ export default function Navbar() {
             <div className="relative flex-shrink-0">
               <div className="absolute inset-0 rounded-[10px] bg-[#f72585]/40 blur-[8px] scale-110 group-hover:bg-[#f72585]/60 transition-all duration-300" />
               <img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Mood2Fit logo"
                 width={38}
                 height={38}
@@ -189,7 +189,7 @@ export default function Navbar() {
                   <div className="relative flex-shrink-0">
                     <div className="absolute inset-0 rounded-[7px] bg-[#f72585]/40 blur-[6px] scale-110" />
                     <img
-                      src="/logo.png"
+                      src="/logo.webp"
                       alt="Mood2Fit logo"
                       width={28}
                       height={28}

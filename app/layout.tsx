@@ -15,65 +15,60 @@ const roboto = Roboto({
 
 export function generateMetadata(): Metadata {
   return {
-  // ── Base URL — requis pour que Next.js construise les URLs absolues (og:image etc.)
-  metadataBase: new URL("https://mood2fit.com"),
+    metadataBase: new URL("https://mood2fit.com"),
 
-  title: {
-    default: "Mood2Fit",
-    template: "%s | Mood2Fit", // ex: "Communauté | Mood2Fit"
-  },
-  description:
-    "L'app qui matche ton énergie du jour avec le bon partenaire de sport. Musculation, street workout, cardio — entraîne-toi avec des gens qui te ressemblent.",
-  keywords: [
-    "partenaire sport",
-    "workout",
-    "musculation",
-    "street workout",
-    "motivation sport",
-    "app fitness",
-    "co-sport",
-    "matching sport",
-    "trouver partenaire musculation",
-    "sport en groupe",
-  ],
-  authors: [{ name: "Mood2Fit" }],
-
-  // ── Open Graph — preview sur Instagram, LinkedIn, WhatsApp, Facebook
-  openGraph: {
-    title: "Mood2Fit — Trouve ta scéance de sport idéale",
+    title: {
+      default: "Mood2Fit",
+      template: "%s | Mood2Fit",
+    },
     description:
-      "L'app qui matche ton énergie du jour avec ta scéance de sport.",
-    url: "https://mood2fit.com",
-    siteName: "Mood2Fit",
-    locale: "fr_FR",
-    type: "website",
-  },
+      "L'app qui matche ton énergie du jour avec le bon partenaire de sport. Musculation, street workout, cardio — entraîne-toi avec des gens qui te ressemblent.",
+    keywords: [
+      "partenaire sport",
+      "workout",
+      "musculation",
+      "street workout",
+      "motivation sport",
+      "app fitness",
+      "co-sport",
+      "matching sport",
+      "trouver partenaire musculation",
+      "sport en groupe",
+    ],
+    authors: [{ name: "Mood2Fit" }],
 
-  // ── Twitter / X
-  twitter: {
-    card: "summary_large_image",
-    title: "Mood2Fit — Trouve ta scéance de sport idéale",
-    description:
-      "L'app qui matche ton énergie du jour avec ta scéance de sport."
-},
+    openGraph: {
+      title: "Mood2Fit — Trouve ta séance de sport idéale",
+      description:
+        "L'app qui matche ton énergie du jour avec ta séance de sport.",
+      url: "https://mood2fit.com",
+      siteName: "Mood2Fit",
+      locale: "fr_FR",
+      type: "website",
+    },
 
-  // ── Robots
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    twitter: {
+      card: "summary_large_image",
+      title: "Mood2Fit — Trouve ta séance de sport idéale",
+      description:
+        "L'app qui matche ton énergie du jour avec ta séance de sport.",
+    },
+
+    robots: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
 
-  // ── Icons
-icons: {
-  icon: '/icon.png',
-  apple: '/apple-icon.png',
-},
+    icons: {
+      icon: '/icon.png',
+      apple: '/apple-icon.png',
+    },
 
     other: {
       ...Sentry.getTraceData(),
@@ -88,6 +83,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={roboto.variable}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className="font-roboto bg-[#080010] text-text-main antialiased overflow-x-hidden">
         {children}
       </body>
@@ -98,7 +97,7 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": "MobileApplication",
             "name": "Mood2Fit",
-            "description": "L'app qui matche ton énergie du jour avec tes scéances de sport. Musculation, street workout, entraîne-toi avec des gens qui te ressemblent.",
+            "description": "L'app qui matche ton énergie du jour avec tes séances de sport. Musculation, street workout, entraîne-toi avec des gens qui te ressemblent.",
             "url": "https://mood2fit.com",
             "applicationCategory": "HealthApplication",
             "operatingSystem": "iOS, Android",

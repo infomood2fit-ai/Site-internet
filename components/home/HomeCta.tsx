@@ -17,7 +17,7 @@ export default function HomeCta() {
       {/* Logo watermark — next/image */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
         <Image
-          src="/logo.png"
+          src="/logo.webp"
           alt=""
           width={500}
           height={500}
