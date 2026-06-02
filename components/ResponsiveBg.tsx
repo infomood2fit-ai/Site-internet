@@ -2,9 +2,9 @@
  * ResponsiveBg — charge uniquement l'image adaptée à l'écran
  *
  * Remplace ce pattern dans toutes les pages :
- *   <img src="/fonds/fonds_mobil.png"   className="block md:hidden" />
- *   <img src="/fonds/fonds_tablette.png" className="hidden md:block lg:hidden" />
- *   <img src="/fonds/fonds.png"          className="hidden lg:block" />
+ *   <img src="/fonds/fonds_mobil.webp"   className="block md:hidden" />
+ *   <img src="/fonds/fonds_tablette.webp" className="hidden md:block lg:hidden" />
+ *   <img src="/fonds/fonds.webp"          className="hidden lg:block" />
  *
  * Utilisation :
  *   <ResponsiveBg />
@@ -30,16 +30,16 @@ export default function ResponsiveBg({ priority = false, overlay = true }: Respo
         {/* Desktop (≥ 1024px) */}
         <source
           media="(min-width: 1024px)"
-          srcSet="/fonds/fonds.png"
+          srcSet="/fonds/fonds.webp"
         />
         {/* Tablette (768px - 1023px) */}
         <source
           media="(min-width: 768px)"
-          srcSet="/fonds/fonds_tablette.png"
+          srcSet="/fonds/fonds_tablette.webp"
         />
         {/* Mobile (< 768px) — fallback img */}
         <img
-          src="/fonds/fonds_mobil.png"
+          src="/fonds/fonds_mobil.webp"
           alt=""
           aria-hidden="true"
           loading={priority ? "eager" : "lazy"}

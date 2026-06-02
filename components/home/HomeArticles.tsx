@@ -38,6 +38,8 @@ function Card({ item }: { item: Article }) {
             src={item.image}
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, 33vw"
             className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105"
           />
           <div

@@ -134,7 +134,7 @@ export default function CommunautePage() {
       {/* ── position relative + z-index 1 pour l'effet reveal footer ── */}
       <main style={{ position: "relative", zIndex: 1, backgroundColor: "#080010" }}>
 
-        {/* HERO — plein écran avec fond fonds.png */}
+        {/* HERO — plein écran avec fond fonds.webp */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           <ResponsiveBg priority={true} />
           <motion.div
