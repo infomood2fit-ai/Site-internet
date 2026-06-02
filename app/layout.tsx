@@ -1,7 +1,7 @@
 import * as Sentry from "@sentry/nextjs";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import Script from "next/script";
 
 import "./globals.css";
 
@@ -78,7 +78,18 @@ export default function RootLayout({
       <body className="font-roboto bg-[#080010] text-text-main antialiased overflow-x-hidden">
         {children}
       </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+        strategy="lazyOnload"
+      />
+      <Script id="ga-init" strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+        `}
+      </Script>
     </html>
   );
 }

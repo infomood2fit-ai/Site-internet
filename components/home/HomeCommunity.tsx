@@ -145,7 +145,7 @@ export default function HomeCommunity() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-2 mt-8">
+        <div className="flex items-center justify-center gap-3 mt-8">
           {BASE.map((_, i) => (
             <button
               key={i}
@@ -153,8 +153,8 @@ export default function HomeCommunity() {
               aria-label={`Témoignage ${i + 1}`}
               className="rounded-full transition-all duration-300"
               style={{
-                width: i === current ? 28 : 12,
-                height: 12,
+                width: i === current ? 32 : 24,
+                height: 24,
                 background: i === current ? "#f72585" : "rgba(0,0,0,0.15)",
               }}
             />
@@ -195,8 +195,14 @@ function Card({ t, isActive }: { t: typeof BASE[0]; isActive: boolean }) {
             </p>
           </div>
         </div>
-        <span className="font-roboto font-700 text-[10px] tracking-[0.1em] uppercase px-2.5 py-1.5 rounded-full flex-shrink-0"
-          style={{ background: `${t.color}18`, color: t.color }}>
+        <span
+          className="font-roboto font-700 text-[10px] tracking-[0.1em] uppercase px-2.5 py-1.5 rounded-full flex-shrink-0"
+          style={{
+            background: "#fff",
+            color: t.color,
+            border: `1px solid ${t.color}40`,
+          }}
+        >
           {t.streak}
         </span>
       </div>
