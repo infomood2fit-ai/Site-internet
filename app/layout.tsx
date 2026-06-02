@@ -83,33 +83,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={roboto.variable}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
       <body className="font-roboto bg-[#080010] text-text-main antialiased overflow-x-hidden">
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "MobileApplication",
+              "name": "Mood2Fit",
+              "description": "L'app qui matche ton énergie du jour avec tes séances de sport. Musculation, street workout, entraîne-toi avec des gens qui te ressemblent.",
+              "url": "https://mood2fit.com",
+              "applicationCategory": "HealthApplication",
+              "operatingSystem": "iOS, Android",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+              }
+            })
+          }}
+        />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       </body>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MobileApplication",
-            "name": "Mood2Fit",
-            "description": "L'app qui matche ton énergie du jour avec tes séances de sport. Musculation, street workout, entraîne-toi avec des gens qui te ressemblent.",
-            "url": "https://mood2fit.com",
-            "applicationCategory": "HealthApplication",
-            "operatingSystem": "iOS, Android",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "EUR"
-            }
-          })
-        }}
-      />
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
     </html>
   );
 }
