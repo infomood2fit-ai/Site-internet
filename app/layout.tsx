@@ -16,7 +16,6 @@ const roboto = Roboto({
 export function generateMetadata(): Metadata {
   return {
     metadataBase: new URL("https://mood2fit.com"),
-
     title: {
       default: "Mood2Fit",
       template: "%s | Mood2Fit",
@@ -36,24 +35,19 @@ export function generateMetadata(): Metadata {
       "sport en groupe",
     ],
     authors: [{ name: "Mood2Fit" }],
-
     openGraph: {
       title: "Mood2Fit — Trouve ta séance de sport idéale",
-      description:
-        "L'app qui matche ton énergie du jour avec ta séance de sport.",
+      description: "L'app qui matche ton énergie du jour avec ta séance de sport.",
       url: "https://mood2fit.com",
       siteName: "Mood2Fit",
       locale: "fr_FR",
       type: "website",
     },
-
     twitter: {
       card: "summary_large_image",
       title: "Mood2Fit — Trouve ta séance de sport idéale",
-      description:
-        "L'app qui matche ton énergie du jour avec ta séance de sport.",
+      description: "L'app qui matche ton énergie du jour avec ta séance de sport.",
     },
-
     robots: {
       index: true,
       follow: true,
@@ -64,12 +58,10 @@ export function generateMetadata(): Metadata {
         "max-snippet": -1,
       },
     },
-
     icons: {
       icon: '/icon.png',
       apple: '/apple-icon.png',
     },
-
     other: {
       ...Sentry.getTraceData(),
     },
@@ -85,27 +77,8 @@ export default function RootLayout({
     <html lang="fr" className={roboto.variable}>
       <body className="font-roboto bg-[#080010] text-text-main antialiased overflow-x-hidden">
         {children}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "MobileApplication",
-              "name": "Mood2Fit",
-              "description": "L'app qui matche ton énergie du jour avec tes séances de sport. Musculation, street workout, entraîne-toi avec des gens qui te ressemblent.",
-              "url": "https://mood2fit.com",
-              "applicationCategory": "HealthApplication",
-              "operatingSystem": "iOS, Android",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "EUR"
-              }
-            })
-          }}
-        />
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
     </html>
   );
 }
