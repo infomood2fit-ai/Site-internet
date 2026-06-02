@@ -72,9 +72,13 @@ export default function Footer() {
           ))}
         </div>
         <div className="mt-10 pt-6 border-t border-[rgba(250,244,255,0.06)] flex items-center">
-          <div className="flex items-center gap-3" >
+          <div className="flex items-center gap-3" role="list">
             {socials.map((social) => (
-              <Link key={social.platform} href={social.href} role="listitem" aria-label={social.ariaLabel}
+              <Link
+                key={social.platform}
+                href={social.href}
+                role="listitem"
+                aria-label={social.ariaLabel}
                 className="w-9 h-9 rounded-xl bg-[rgba(250,244,255,0.05)] border border-[rgba(250,244,255,0.08)] flex items-center justify-center text-[rgba(250,244,255,0.45)] hover:text-[#f72585] hover:border-[rgba(247,37,133,0.3)] hover:bg-[rgba(247,37,133,0.06)] active:scale-95 transition-all duration-200">
                 {socialIcons[social.platform]}
               </Link>

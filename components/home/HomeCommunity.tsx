@@ -14,7 +14,7 @@ const BASE = [
     id: "t2",
     quote: "Un groupe de street workout trouvé en 20 minutes. On s'entraîne ensemble depuis 3 mois. Mon niveau a explosé.",
     name: "Karim", city: "Paris 19e", sport: "Street Workout 🏋️",
-    color: "#b5179e", streak: "12 semaines", initials: "KA",
+    color: "#9C1A8A", streak: "12 semaines", initials: "KA",
   },
   {
     id: "t3",
@@ -79,7 +79,6 @@ export default function HomeCommunity() {
     <section style={{ background: "#fff" }} className="py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-16">
 
-        {/* Header */}
         <div className="flex items-end justify-between mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -113,10 +112,8 @@ export default function HomeCommunity() {
           </div>
         </div>
 
-        {/* Carousel centré */}
         <div className="relative flex items-center justify-center" style={{ minHeight: "320px" }}>
 
-          {/* Carte précédente (gauche) */}
           <div
             className="hidden md:block absolute select-none"
             style={{ left: "0", width: "360px", opacity: 0.35, transform: "scale(0.92)", pointerEvents: "none", zIndex: 1 }}
@@ -124,7 +121,6 @@ export default function HomeCommunity() {
             <Card t={BASE[((current - 1) + N) % N]} isActive={false} />
           </div>
 
-          {/* Carte active (centre) */}
           <div className="relative z-10" style={{ width: "420px", maxWidth: "100%" }}>
             <AnimatePresence custom={dir} mode="wait">
               <motion.div
@@ -141,7 +137,6 @@ export default function HomeCommunity() {
             </AnimatePresence>
           </div>
 
-          {/* Carte suivante (droite) */}
           <div
             className="hidden md:block absolute select-none"
             style={{ right: "0", width: "360px", opacity: 0.35, transform: "scale(0.92)", pointerEvents: "none", zIndex: 1 }}
@@ -150,7 +145,6 @@ export default function HomeCommunity() {
           </div>
         </div>
 
-        {/* Dots */}
         <div className="flex items-center justify-center gap-2 mt-8">
           {BASE.map((_, i) => (
             <button
@@ -159,8 +153,8 @@ export default function HomeCommunity() {
               aria-label={`Témoignage ${i + 1}`}
               className="rounded-full transition-all duration-300"
               style={{
-                width: i === current ? 28 : 7,
-                height: 7,
+                width: i === current ? 28 : 12,
+                height: 12,
                 background: i === current ? "#f72585" : "rgba(0,0,0,0.15)",
               }}
             />
@@ -182,7 +176,7 @@ function Card({ t, isActive }: { t: typeof BASE[0]; isActive: boolean }) {
       }}
     >
       <p className="font-roboto font-400 leading-relaxed italic"
-        style={{ fontSize: "16px", color: isActive ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.65)" }}>
+        style={{ fontSize: "16px", color: isActive ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.8)" }}>
         &ldquo;{t.quote}&rdquo;
       </p>
       <div className="flex items-center justify-between mt-6 pt-5"
@@ -196,7 +190,7 @@ function Card({ t, isActive }: { t: typeof BASE[0]; isActive: boolean }) {
             <p className="font-roboto font-700 text-sm" style={{ color: isActive ? "#fff" : "#000" }}>
               {t.name} · {t.city}
             </p>
-            <p className="font-roboto text-xs mt-0.5" style={{ color: isActive ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.35)" }}>
+            <p className="font-roboto text-xs mt-0.5" style={{ color: isActive ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)" }}>
               {t.sport}
             </p>
           </div>
