@@ -69,6 +69,10 @@ const nextConfig = {
     ];
   },
 
+  experimental: {
+    optimizeCss: true,
+  },
+
   // ── Image Optimizer — sources autorisées uniquement ───────
   images: {
     remotePatterns: [
@@ -80,3 +84,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+

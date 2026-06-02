@@ -114,7 +114,9 @@ function Card({ item }: { item: Article }) {
           <img
             src={item.image}
             alt=""
+            loading="lazy"
             aria-hidden="true"
+            sizes="(max-width: 768px) 300px, 320px"
             className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105"
           />
           <div className="absolute inset-0"
