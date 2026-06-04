@@ -20,24 +20,37 @@ const N = BASE_SLIDES.length;
 
 function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
   return (
-    <div className="relative rounded-3xl"
-      style={{ width: "100%", height: "78vh", background: s.color, boxShadow: `0 40px 100px ${s.color}55, 0 0 0 1px ${s.color}` }}>
-
+    <div
+      className="relative rounded-3xl"
+      style={{
+        width: "100%",
+        height: "clamp(480px, 78vh, 700px)",
+        background: s.color,
+        boxShadow: `0 40px 100px ${s.color}55, 0 0 0 1px ${s.color}`,
+      }}
+    >
       {/* ── DESKTOP ── */}
       <div className="hidden md:flex items-center px-14 h-full">
         <div className="flex flex-col gap-5 max-w-md z-10 relative">
           <span className="font-roboto font-700 text-xs tracking-[0.25em] uppercase text-white/50">{s.num}</span>
-          <h2 className="font-roboto font-900 uppercase text-white whitespace-pre-line"
-            style={{ fontSize: "clamp(40px, 5vw, 74px)", letterSpacing: "-0.02em", lineHeight: "0.9" }}>
+          <h2
+            className="font-roboto font-900 uppercase text-white whitespace-pre-line"
+            style={{ fontSize: "clamp(40px, 5vw, 74px)", letterSpacing: "-0.02em", lineHeight: "0.9" }}
+          >
             {s.title}
           </h2>
-          <p className="font-roboto font-400 text-white/65 leading-relaxed"
-            style={{ fontSize: "clamp(13px, 1.2vw, 15px)", maxWidth: "320px" }}>
+          <p
+            className="font-roboto font-400 text-white/65 leading-relaxed"
+            style={{ fontSize: "clamp(13px, 1.2vw, 15px)", maxWidth: "320px" }}
+          >
             {s.desc}
           </p>
           <div className="h-px w-12" style={{ background: "rgba(255,255,255,0.4)" }} />
         </div>
-        <div className="absolute pointer-events-none z-20" style={{ bottom: 0, transform: "translateY(35px)", right: "60px", width: "clamp(140px, 15vw, 210px)" }}>
+        <div
+          className="absolute pointer-events-none z-20"
+          style={{ bottom: 0, transform: "translateY(35px)", right: "60px", width: "clamp(140px, 15vw, 210px)" }}
+        >
           <Image
             src={MOKUP_MAP[s.id]}
             alt={`Mood2Fit ${s.id}`}
@@ -50,27 +63,46 @@ function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
       </div>
 
       {/* ── MOBILE ── */}
-      <div className="flex md:hidden flex-col h-full px-5 pt-6">
-        <div className="flex flex-col gap-3">
+      <div className="flex md:hidden flex-col h-full px-5 pt-5">
+        <div className="flex flex-col gap-2">
           <span className="font-roboto font-700 text-[10px] tracking-[0.25em] uppercase text-white/50">{s.num}</span>
-          <h2 className="font-roboto font-900 uppercase text-white whitespace-pre-line"
-            style={{ fontSize: "clamp(30px, 9vw, 44px)", letterSpacing: "-0.02em", lineHeight: "0.92" }}>
+          <h2
+            className="font-roboto font-900 uppercase text-white whitespace-pre-line"
+            style={{ fontSize: "clamp(26px, 7.5vw, 40px)", letterSpacing: "-0.02em", lineHeight: "0.92" }}
+          >
             {s.title}
           </h2>
-          <p className="font-roboto font-400 text-white/65 leading-relaxed text-sm">{s.desc}</p>
+          <p
+            className="font-roboto font-400 text-white/65 leading-relaxed"
+            style={{ fontSize: "clamp(12px, 3.2vw, 14px)" }}
+          >
+            {s.desc}
+          </p>
         </div>
-        <div className="flex justify-center mt-3" style={{ maxWidth: "200px", margin: "12px auto 0" }}>
+
+        {/* Mockup — taille proportionnelle à la carte */}
+        <div
+          className="flex justify-center"
+          style={{
+            flex: 1,
+            alignItems: "flex-end",
+            paddingBottom: "0px",
+          }}
+        >
           <Image
             src={MOKUP_MAP[s.id]}
             alt={`Mood2Fit ${s.id}`}
             width={200}
             height={433}
             priority
-            style={{ width: "100%", height: "auto", objectFit: "contain" }}
+            style={{
+              width: "clamp(120px, 42vw, 180px)",
+              height: "auto",
+              objectFit: "contain",
+            }}
           />
         </div>
       </div>
-
     </div>
   );
 }
@@ -95,9 +127,7 @@ export default function HomeFeatures() {
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStartX.current === null) return;
     const diff = touchStartX.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      handleNav(diff > 0 ? 1 : -1);
-    }
+    if (Math.abs(diff) > 50) handleNav(diff > 0 ? 1 : -1);
     touchStartX.current = null;
   };
 
@@ -108,28 +138,43 @@ export default function HomeFeatures() {
   };
 
   return (
-    <section className="relative h-screen bg-white overflow-hidden flex flex-col items-center justify-center" aria-label="Fonctionnalités Mood2Fit">
-
-      <div className="relative flex items-center justify-center w-full overflow-visible" style={{ height: "78vh" }}>
+    <section
+      className="relative h-screen bg-white overflow-hidden flex flex-col items-center justify-center"
+      aria-label="Fonctionnalités Mood2Fit"
+    >
+      <div
+        className="relative flex items-center justify-center w-full overflow-visible"
+        style={{ height: "clamp(480px, 78vh, 700px)" }}
+      >
         <div
           className="relative z-10 w-[92vw] md:w-[76vw]"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
           <AnimatePresence custom={dir} mode="wait">
-            <motion.div key={current} custom={dir} variants={variants} initial="enter" animate="center" exit="exit"
+            <motion.div
+              key={current}
+              custom={dir}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
               style={{ willChange: "transform", backfaceVisibility: "hidden" }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}>
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            >
               <SlideCard s={BASE_SLIDES[current]} />
             </motion.div>
           </AnimatePresence>
         </div>
 
         {[-1, 1].map((delta) => (
-          <button key={delta} onClick={() => handleNav(delta)}
+          <button
+            key={delta}
+            onClick={() => handleNav(delta)}
             className={`absolute ${delta === -1 ? "left-2 md:left-8" : "right-2 md:right-8"} top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-11 md:h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110`}
             style={{ background: "rgba(0,0,0,0.06)", border: "1px solid rgba(0,0,0,0.1)" }}
-            aria-label={delta === -1 ? "Précédent" : "Suivant"}>
+            aria-label={delta === -1 ? "Précédent" : "Suivant"}
+          >
             <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
               <path d={delta === -1 ? "M11 4L6 9L11 14" : "M7 4L12 9L7 14"} stroke="#000" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -139,12 +184,19 @@ export default function HomeFeatures() {
 
       <div className="flex items-center gap-3 mt-8 z-20">
         {BASE_SLIDES.map((_s, i) => (
-          <button key={i} onClick={() => { stopAuto(); goTo(i, i > current ? 1 : -1); setTimeout(startAuto, 5000); }}
-            aria-label={`Slide ${i + 1}`} className="rounded-full transition-all duration-300"
-            style={{ width: i === current ? 28 : 8, height: 8, background: i === current ? BASE_SLIDES[current].color : "rgba(0,0,0,0.15)" }} />
+          <button
+            key={i}
+            onClick={() => { stopAuto(); goTo(i, i > current ? 1 : -1); setTimeout(startAuto, 5000); }}
+            aria-label={`Slide ${i + 1}`}
+            className="rounded-full transition-all duration-300"
+            style={{
+              width: i === current ? 28 : 8,
+              height: 8,
+              background: i === current ? BASE_SLIDES[current].color : "rgba(0,0,0,0.15)",
+            }}
+          />
         ))}
       </div>
-
     </section>
   );
 }
