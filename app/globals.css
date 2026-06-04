@@ -112,6 +112,12 @@ body {
   padding-bottom: 6rem;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+
 @media (min-width: 1024px) {
   .section-padding {
     padding-top: 9rem;

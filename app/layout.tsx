@@ -74,11 +74,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={roboto.variable}>
+    <html lang="fr" className={roboto.variable} style={{ overflowX: "hidden" }}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </head>
-      <body className="font-roboto bg-[#080010] text-text-main antialiased overflow-x-hidden">
+        <body className="font-roboto bg-[#080010] text-text-main antialiased overflow-x-hidden" style={{ overflowX: "hidden", width: "100%", maxWidth: "100vw" }}>
         {children}
       </body>
       <Script
