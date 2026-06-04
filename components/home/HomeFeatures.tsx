@@ -38,8 +38,14 @@ function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
           <div className="h-px w-12" style={{ background: "rgba(255,255,255,0.4)" }} />
         </div>
         <div className="absolute pointer-events-none z-20" style={{ bottom: 0, transform: "translateY(35px)", right: "60px", width: "clamp(140px, 15vw, 210px)" }}>
-          <Image src={MOKUP_MAP[s.id]} alt={`Mood2Fit ${s.id}`} width={210} height={455}
-            style={{ width: "100%", height: "auto", objectFit: "contain" }} />
+          <Image
+            src={MOKUP_MAP[s.id]}
+            alt={`Mood2Fit ${s.id}`}
+            width={210}
+            height={455}
+            priority
+            style={{ width: "100%", height: "auto", objectFit: "contain" }}
+          />
         </div>
       </div>
 
@@ -54,8 +60,14 @@ function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
           <p className="font-roboto font-400 text-white/65 leading-relaxed text-sm">{s.desc}</p>
         </div>
         <div className="flex justify-center mt-3" style={{ maxWidth: "200px", margin: "12px auto 0" }}>
-          <Image src={MOKUP_MAP[s.id]} alt={`Mood2Fit ${s.id}`} width={200} height={433}
-            style={{ width: "100%", height: "auto", objectFit: "contain" }} />
+          <Image
+            src={MOKUP_MAP[s.id]}
+            alt={`Mood2Fit ${s.id}`}
+            width={200}
+            height={433}
+            priority
+            style={{ width: "100%", height: "auto", objectFit: "contain" }}
+          />
         </div>
       </div>
 
@@ -76,7 +88,6 @@ export default function HomeFeatures() {
 
   useEffect(() => { startAuto(); return stopAuto; }, []);
 
-  // ── Swipe tactile ──
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
