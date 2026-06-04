@@ -172,8 +172,8 @@ export default function HomeCommunity() {
               aria-label={`Témoignage ${i + 1}`}
               className="rounded-full transition-all duration-300"
               style={{
-                width: i === current ? 32 : 24,
-                height: 24,
+                width: i === current ? 28 : 8,
+                height: 8,
                 background: i === current ? "#f72585" : "rgba(0,0,0,0.15)",
               }}
             />
