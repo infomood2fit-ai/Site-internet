@@ -10,7 +10,6 @@ const BASE_SLIDES = [
   { id: "challenges", num: "03", title: "On t'écoute,\nvraiment.", desc: "Un bug, une idée, un truc qui cloche. Signale-le en deux secondes, on s'en occupe.", color: "#9650CD", screen: "challenges" },
 ];
 
-// ── Mokups par slide — remplace par les vrais assets quand disponibles
 const MOKUP_MAP: Record<string, string> = {
   mood:       "/mokup/mokup_1.png",
   matching:   "/mokup/mokup_4.png",
@@ -38,16 +37,9 @@ function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
           </p>
           <div className="h-px w-12" style={{ background: "rgba(255,255,255,0.4)" }} />
         </div>
-
-        {/* Mokup desktop — next/image */}
         <div className="absolute pointer-events-none z-20" style={{ bottom: 0, transform: "translateY(35px)", right: "60px", width: "clamp(140px, 15vw, 210px)" }}>
-          <Image
-            src={MOKUP_MAP[s.id]}
-            alt={`Mood2Fit ${s.id}`}
-            width={210}
-            height={455}
-            style={{ width: "100%", height: "auto", objectFit: "contain" }}
-          />
+          <Image src={MOKUP_MAP[s.id]} alt={`Mood2Fit ${s.id}`} width={210} height={455}
+            style={{ width: "100%", height: "auto", objectFit: "contain" }} />
         </div>
       </div>
 
@@ -61,16 +53,9 @@ function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
           </h2>
           <p className="font-roboto font-400 text-white/65 leading-relaxed text-sm">{s.desc}</p>
         </div>
-
-        {/* Mokup mobile — next/image */}
         <div className="flex justify-center mt-3" style={{ maxWidth: "200px", margin: "12px auto 0" }}>
-          <Image
-            src={MOKUP_MAP[s.id]}
-            alt={`Mood2Fit ${s.id}`}
-            width={200}
-            height={433}
-            style={{ width: "100%", height: "auto", objectFit: "contain" }}
-          />
+          <Image src={MOKUP_MAP[s.id]} alt={`Mood2Fit ${s.id}`} width={200} height={433}
+            style={{ width: "100%", height: "auto", objectFit: "contain" }} />
         </div>
       </div>
 
@@ -82,6 +67,7 @@ export default function HomeFeatures() {
   const [current, setCurrent] = useState(0);
   const [dir, setDir] = useState(1);
   const autoTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const touchStartX = useRef<number | null>(null);
 
   const goTo = (idx: number, direction: number) => { setDir(direction); setCurrent(((idx % N) + N) % N); };
   const handleNav = (delta: number) => { stopAuto(); goTo(current + delta, delta); setTimeout(startAuto, 5000); };
@@ -89,6 +75,20 @@ export default function HomeFeatures() {
   const stopAuto = () => { if (autoTimer.current) clearInterval(autoTimer.current); };
 
   useEffect(() => { startAuto(); return stopAuto; }, []);
+
+  // ── Swipe tactile ──
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      handleNav(diff > 0 ? 1 : -1);
+    }
+    touchStartX.current = null;
+  };
 
   const variants = {
     enter: (d: number) => ({ opacity: 0, x: d > 0 ? "60%" : "-60%", scale: 0.97 }),
@@ -100,7 +100,11 @@ export default function HomeFeatures() {
     <section className="relative h-screen bg-white overflow-hidden flex flex-col items-center justify-center" aria-label="Fonctionnalités Mood2Fit">
 
       <div className="relative flex items-center justify-center w-full overflow-visible" style={{ height: "78vh" }}>
-        <div className="relative z-10 w-[92vw] md:w-[76vw]">
+        <div
+          className="relative z-10 w-[92vw] md:w-[76vw]"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <AnimatePresence custom={dir} mode="wait">
             <motion.div key={current} custom={dir} variants={variants} initial="enter" animate="center" exit="exit"
               style={{ willChange: "transform", backfaceVisibility: "hidden" }}
@@ -110,7 +114,6 @@ export default function HomeFeatures() {
           </AnimatePresence>
         </div>
 
-        {/* Flèches */}
         {[-1, 1].map((delta) => (
           <button key={delta} onClick={() => handleNav(delta)}
             className={`absolute ${delta === -1 ? "left-2 md:left-8" : "right-2 md:right-8"} top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-11 md:h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110`}
@@ -123,7 +126,6 @@ export default function HomeFeatures() {
         ))}
       </div>
 
-      {/* Dots */}
       <div className="flex items-center gap-3 mt-8 z-20">
         {BASE_SLIDES.map((_s, i) => (
           <button key={i} onClick={() => { stopAuto(); goTo(i, i > current ? 1 : -1); setTimeout(startAuto, 5000); }}

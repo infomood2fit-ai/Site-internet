@@ -36,6 +36,7 @@ export default function HomeCommunity() {
   const [current, setCurrent] = useState(0);
   const [dir, setDir] = useState(1);
   const autoTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const touchStartX = useRef<number | null>(null);
 
   const goTo = (idx: number, direction: number) => {
     setDir(direction);
@@ -66,6 +67,20 @@ export default function HomeCommunity() {
     startAuto();
     return stopAuto;
   }, []);
+
+  // ── Swipe tactile ──
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      handleNav(diff > 0 ? 1 : -1);
+    }
+    touchStartX.current = null;
+  };
 
   const variants = {
     enter: (d: number) => ({ opacity: 0, x: d > 0 ? 80 : -80 }),
@@ -112,8 +127,12 @@ export default function HomeCommunity() {
           </div>
         </div>
 
-        <div className="relative flex items-center justify-center" style={{ minHeight: "320px" }}>
-
+        <div
+          className="relative flex items-center justify-center"
+          style={{ minHeight: "320px" }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <div
             className="hidden md:block absolute select-none"
             style={{ left: "0", width: "360px", opacity: 0.35, transform: "scale(0.92)", pointerEvents: "none", zIndex: 1 }}
