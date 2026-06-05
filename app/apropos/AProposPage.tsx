@@ -210,7 +210,7 @@ export default function AProposPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.7, delay: i * 0.1 }}
-                  className="grid grid-cols-[60px_1fr_1fr] md:grid-cols-[80px_240px_1fr] gap-6 md:gap-12 py-10 md:py-14 items-start"
+                  className="grid grid-cols-[40px_1fr] md:grid-cols-[80px_240px_1fr] gap-4 md:gap-12 py-10 md:py-14 items-start"
                   style={{ borderBottom: "1px solid rgba(255,255,255,0.25)" }}>
                   <span className="font-roboto font-900 text-white/30"
                     style={{ fontSize: "clamp(24px, 3vw, 40px)" }}>
@@ -220,7 +220,7 @@ export default function AProposPage() {
                     style={{ fontSize: "clamp(20px, 2.5vw, 34px)", letterSpacing: "-0.03em" }}>
                     {val.title}
                   </h3>
-                  <p className="font-roboto font-400 text-white/75 leading-relaxed"
+                  <p className="font-roboto font-400 text-white/75 leading-relaxed col-start-2 md:col-auto"
                     style={{ fontSize: "clamp(14px, 1.4vw, 17px)" }}>
                     {val.desc}
                   </p>

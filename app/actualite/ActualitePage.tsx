@@ -321,9 +321,6 @@ export default function ActualitePage() {
                   <h2 className="font-roboto font-700 text-black" style={{ fontSize: "16px" }}>
                     {cat.label}
                   </h2>
-                  <Link href="#" className="font-roboto font-700 text-[10px] tracking-[0.12em] uppercase text-black/30 hover:text-black transition-colors duration-200">
-                    Tout afficher
-                  </Link>
                 </div>
                 <ContentRow catId={cat.id} rows={rows} />
               </motion.section>
