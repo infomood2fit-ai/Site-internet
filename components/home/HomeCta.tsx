@@ -36,7 +36,7 @@ export default function HomeCta() {
           className="font-roboto font-900 text-white uppercase leading-[0.85] tracking-[-0.04em] mb-10"
           style={{ fontSize: "clamp(64px, 12vw, 160px)" }}
         >
-          Plus<br />d&apos;excuse.
+          Plus<br />d&apos;excuses.
         </motion.h2>
 
         {/* Sous-ligne */}
