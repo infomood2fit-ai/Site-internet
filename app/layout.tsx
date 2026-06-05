@@ -78,9 +78,9 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </head>
-        <body className="font-roboto bg-[#080010] text-text-main antialiased overflow-x-hidden" style={{ overflowX: "hidden", width: "100%", maxWidth: "100vw" }}>
-        {children}
-      </body>
+        <body className="font-roboto bg-[#080010] text-text-main antialiased" style={{ width: "100%", maxWidth: "100vw" }}>
+  {children}
+</body>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
         strategy="afterInteractive"
