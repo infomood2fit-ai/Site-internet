@@ -1,5 +1,6 @@
 import * as Sentry from "@sentry/nextjs";
 import type { Metadata } from "next";
+import { Analytics } from '@vercel/analytics/react';
 import { Roboto } from "next/font/google";
 import Script from "next/script";
 
@@ -79,6 +80,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </head>
         <body className="font-roboto bg-[#080010] text-text-main antialiased" style={{ width: "100%", maxWidth: "100vw" }}>
+    <Analytics />
   {children}
 </body>
       <Script

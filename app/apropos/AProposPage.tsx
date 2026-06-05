@@ -277,7 +277,7 @@ export default function AProposPage() {
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="font-roboto font-900 text-white uppercase leading-[0.85] tracking-[-0.04em] mb-10"
               style={{ fontSize: "clamp(60px, 11vw, 150px)" }}>
-              Tu n'as plus<br />d'excuse.
+              Tu n'as plus<br />d'excuses.
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}

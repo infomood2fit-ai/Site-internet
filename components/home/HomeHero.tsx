@@ -85,7 +85,7 @@ export default function HomeHero() {
               <br />EST
               <br />MEILLEUR
               <br />
-              <span style={{ color: "#f72585" }}>À DEUX.</span>
+              <span style={{ color: "#f72585" }}>À PLUSIEURS.</span>
             </h1>
 
             {/* Sous-titre + boutons */}

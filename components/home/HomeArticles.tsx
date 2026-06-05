@@ -40,12 +40,12 @@ function Card({ item }: { item: Article }) {
             aria-hidden="true"
             loading="lazy"
             sizes="(max-width: 768px) 100vw, 33vw"
-            className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105 brightness-50"
           />
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.88) 100%)",
+              background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.70) 55%, rgba(0,0,0,0.92) 100%)",
             }}
           />
         </div>
