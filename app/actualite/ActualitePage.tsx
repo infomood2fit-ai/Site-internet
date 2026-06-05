@@ -73,8 +73,8 @@ function NewsletterBanner() {
               <span className="font-roboto font-700 text-sm">Tu es dans la boucle !</span>
             </motion.div>
           ) : (
-            <motion.form key="form" onSubmit={handleSubmit(onSubmit)} className="flex gap-3" noValidate>
-              <input type="email" placeholder="ton@email.com"
+            <motion.form key="form" onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-3" noValidate>
+            <input type="email" placeholder="ton@email.com"
                 className="flex-1 px-5 py-3.5 rounded-full font-roboto font-400 text-black placeholder-black/35 focus:outline-none text-sm bg-white"
                 {...register("email")} />
               <button type="submit" disabled={isSubmitting}

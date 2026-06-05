@@ -45,8 +45,7 @@ function Card({ item }: { item: Article }) {
           <div
             className="absolute inset-0"
             style={{
-              background:
-                "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.88) 100%)",
+              background: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.88) 100%)",
             }}
           />
         </div>
@@ -55,6 +54,7 @@ function Card({ item }: { item: Article }) {
       )}
 
       <div className="relative z-10 flex flex-col h-full p-5 gap-3">
+        {/* Source + langue + date — même structure que ActualitePage */}
         <div className="flex items-center justify-between">
           <span
             className="font-roboto font-700 text-[11px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full"
@@ -106,6 +106,7 @@ function Card({ item }: { item: Article }) {
           {item.description}
         </p>
 
+        {/* Séparateur + Lire — même structure que ActualitePage */}
         <div
           className="flex items-center gap-2 pt-3 opacity-70 group-hover/card:opacity-100 transition-all duration-200"
           style={{
@@ -129,24 +130,42 @@ function Card({ item }: { item: Article }) {
   );
 }
 
+const CATEGORIES = ["humeur", "equipe", "tendances", "sante", "nutrition", "evenements"];
+
 export default function HomeArticles() {
   const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
-    fetch("/articles.json")
+    fetch("/api/articles")
       .then((res) => res.json())
       .then((data: { articles: Record<string, Article[]> }) => {
-        const all: Article[] = Object.values(data.articles).flat();
+        const byCategory = data.articles || {};
+        const selected: Article[] = [];
+        const usedCategories = new Set<string>();
 
-        const sorted = [...all].sort((a, b) => {
-          const parse = (s: string) => {
-            const [d, m, y] = s.split("/");
-            return new Date(`${y}-${m}-${d}`).getTime();
-          };
-          return parse(b.publishedAt_fr) - parse(a.publishedAt_fr);
-        });
+        // Mélange les catégories pour varier
+        const shuffledCategories = [...CATEGORIES].sort(() => Math.random() - 0.5);
 
-        setArticles(sorted.slice(0, 3));
+        for (const cat of shuffledCategories) {
+          if (selected.length >= 3) break;
+          if (usedCategories.has(cat)) continue;
+
+          const articlesInCat = byCategory[cat] || [];
+          if (articlesInCat.length === 0) continue;
+
+          // Priorité aux articles FR
+          const frArticles = articlesInCat.filter((a) => a.lang === "FR");
+          const pool = frArticles.length > 0 ? frArticles : articlesInCat;
+
+          // Prend un article au hasard dans le pool
+          const pick = pool[Math.floor(Math.random() * pool.length)];
+          if (pick) {
+            selected.push(pick);
+            usedCategories.add(cat);
+          }
+        }
+
+        setArticles(selected);
       })
       .catch(() => {});
   }, []);
