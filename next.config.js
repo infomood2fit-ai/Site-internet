@@ -69,7 +69,12 @@ const nextConfig = {
     ];
   },
 
-
+webpack: (config) => {
+  config.ignoreWarnings = [
+    { module: /node_modules\/@prisma\/instrumentation/ }
+  ];
+  return config;
+},
   // ── Image Optimizer — sources autorisées uniquement ───────
   images: {
     remotePatterns: [
