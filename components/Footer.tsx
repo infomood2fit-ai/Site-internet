@@ -20,6 +20,7 @@ const footerColumns = [
       { label: "Communauté", href: "/communaute" },
       { label: "Actualités", href: "/actualite" },
       { label: "À propos", href: "/apropos" },
+      { label: "Rejoins-nous", href: "/recrutons" },
     ],
   },
   {
