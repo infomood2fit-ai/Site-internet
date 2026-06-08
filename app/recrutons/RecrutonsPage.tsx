@@ -145,9 +145,7 @@ export default function RecrutonsPage() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-10 flex flex-col items-center text-center gap-6 px-6 max-w-4xl mx-auto pt-20"
           >
-            <span className="font-roboto font-700 text-xs tracking-[0.25em] uppercase text-white/50">
-              On recrute
-            </span>
+           
             <h1
               className="font-roboto font-900 uppercase text-white leading-[0.9]"
               style={{
@@ -163,7 +161,7 @@ export default function RecrutonsPage() {
               className="font-roboto font-400 max-w-lg text-center"
               style={{ fontSize: "clamp(15px, 1.5vw, 18px)", color: "rgba(255,255,255,0.7)" }}
             >
-              Pas de poste ouvert en ce moment, mais on aime rencontrer des gens bien. Si tu te reconnais dans ce qu'on construit, parle-nous de toi.
+              On aime rencontrer des gens bien. Si tu te reconnais dans ce qu'on construit, parle-nous de toi.
             </p>
           </motion.div>
         </section>
