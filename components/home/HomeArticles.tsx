@@ -202,11 +202,11 @@ export default function HomeArticles() {
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5 items-stretch">
-          {articles.map((article, i) => (
-            <motion.div
-              key={article.id}
-              className="h-full"
+        <div className="grid md:grid-cols-3 gap-5 items-stretch" style={{ gridAutoRows: "1fr" }}>
+  {articles.map((article, i) => (
+    <motion.div
+      key={article.id}
+      style={{ height: "100%" }}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}

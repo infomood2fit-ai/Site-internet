@@ -78,7 +78,7 @@ export default function AProposPage() {
             className="relative z-10 flex flex-col items-center text-center gap-6 px-6 max-w-4xl mx-auto pt-20"
           >
             <h1 className="font-roboto font-900 uppercase leading-[0.9] text-white"
-              style={{ letterSpacing: "0.06em", lineHeight: "0.95", fontSize: "clamp(64px, 10vw, 130px)", textShadow: "0 2px 20px rgba(0,0,0,0.25)" }}>
+              style={{ letterSpacing: "0.01em", lineHeight: "0.95", fontSize: "clamp(64px, 10vw, 130px)", textShadow: "0 2px 20px rgba(0,0,0,0.25)" }}>
               Née d'une séance<br />
               <span style={{ color: "#f72585" }}>ratée.</span>
             </h1>
