@@ -8,8 +8,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Mail, MessageSquare, Send, CheckCircle, Loader2, ChevronDown, Instagram } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import ResponsiveBg from "@/components/ResponsiveBg";
 import Footer from "@/components/Footer";
+import HeroSection from "@/components/Herosection";
 
 const schema = z.object({
   name: z.string().min(2, "Au moins 2 caractères").max(80).trim(),
@@ -204,25 +204,12 @@ export default function ContactPage() {
       <Navbar />
       <main style={{ position: "relative", zIndex: 1, backgroundColor: "#080010" }}>
 
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          <ResponsiveBg priority={true} />
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 flex flex-col items-center text-center gap-6 px-6 max-w-4xl mx-auto pt-20"
-          >
-            <h1 className="font-roboto font-900 uppercase leading-[0.9] text-white"
-              style={{ letterSpacing: "-0.02em", fontSize: "clamp(56px, 10vw, 130px)", textShadow: "0 2px 20px rgba(0,0,0,0.25)" }}>
-              On est<br />
-              <span style={{ color: "#f72585" }}>à l'écoute.</span>
-            </h1>
-            <p className="font-roboto font-400 max-w-lg text-center"
-              style={{ fontSize: "clamp(15px, 1.5vw, 18px)", color: "rgba(255,255,255,0.7)" }}>
-              Une question, une idée, un partenariat ? On lit chaque message personnellement.
-            </p>
-          </motion.div>
-        </section>
+      <HeroSection
+  priority={true}
+  whiteLine="On est"
+  pinkLine="à l'écoute."
+  subtitle="Une question, une idée, un partenariat ? On lit chaque message personnellement."
+/>  
 
         <section id="formulaire" style={{ background: "#fff" }} className="py-32">
           <div className="max-w-7xl mx-auto px-6 md:px-16">

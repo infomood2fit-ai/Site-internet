@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence} from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { CheckCircle, Loader2, Bell, ChevronRight, ChevronLeft, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import ResponsiveBg from "@/components/ResponsiveBg";
+import HeroSection from "@/components/Herosection";
 import Footer from "@/components/Footer";
 
 // ---- Types ----
@@ -215,39 +215,7 @@ function ContentRow({ catId, rows }: { catId: string; rows: Record<string, Artic
   );
 }
 
-// ============================================================
-// HERO
-// ============================================================
-function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const darkness = useTransform(scrollYProgress, [0, 1], ["rgba(0,0,0,0)", "rgba(0,0,0,0.8)"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0px", "-80px"]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
 
-  return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <ResponsiveBg priority={true} />
-      <motion.div className="absolute inset-0 z-[1]" style={{ background: darkness }} />
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        style={{ y: textY, opacity: textOpacity }}
-        className="relative z-10 flex flex-col items-center text-center gap-6 px-6 max-w-4xl mx-auto pt-20"
-      >
-        <h1 className="font-roboto font-900 uppercase leading-[0.9] text-white"
-          style={{ letterSpacing: "-0.02em", fontSize: "clamp(56px, 10vw, 130px)", textShadow: "0 2px 20px rgba(0,0,0,0.25)" }}>
-          Tout ce qui<br />
-          <span style={{ color: "#f72585" }}>se passe.</span>
-        </h1>
-        <p className="font-roboto font-400 max-w-lg" style={{ fontSize: "clamp(15px, 1.5vw, 18px)", color: "rgba(255,255,255,0.7)" }}>
-          Tips, témoignages, tendances et événements. Le fil de la communauté.
-        </p>
-      </motion.div>
-    </section>
-  );
-}
 
 // ============================================================
 // PAGE PRINCIPALE
@@ -279,7 +247,11 @@ export default function ActualitePage() {
       <Navbar />
       <main style={{ background: "#fff", minHeight: "100vh", position: "relative", zIndex: 1 }}>
 
-        <HeroSection />
+        <HeroSection
+  whiteLine="TOUT CE QUI"
+  pinkLine="SE PASSE."
+  subtitle="Tips, témoignages, tendances et événements. Le fil de la communauté."
+/>
 
         {/* FILTRES STICKY */}
         <div className="sticky top-0 z-30 px-6 md:px-16 py-5"

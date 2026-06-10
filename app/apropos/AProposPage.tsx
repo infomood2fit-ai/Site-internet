@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
-import ResponsiveBg from "@/components/ResponsiveBg";
 import Footer from "@/components/Footer";
+import CtaSection from "@/components/CtaSection";
+import HeroSection from "@/components/Herosection";
 
 const timeline = [
   {
@@ -69,25 +68,11 @@ export default function AProposPage() {
       <Navbar />
       <main style={{ position: "relative", zIndex: 1, backgroundColor: "#080010" }}>
 
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          <ResponsiveBg priority={true} />
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 flex flex-col items-center text-center gap-6 px-6 max-w-4xl mx-auto pt-20"
-          >
-            <h1 className="font-roboto font-900 uppercase leading-[0.9] text-white"
-              style={{ letterSpacing: "0.01em", lineHeight: "0.95", fontSize: "clamp(64px, 10vw, 130px)", textShadow: "0 2px 20px rgba(0,0,0,0.25)" }}>
-              Née d'une séance<br />
-              <span style={{ color: "#f72585" }}>ratée.</span>
-            </h1>
-            <p className="font-roboto font-400 max-w-lg text-center"
-              style={{ fontSize: "clamp(15px, 1.5vw, 18px)", color: "rgba(255,255,255,0.7)" }}>
-              Mood2Fit est née d'une conviction simple : le sport est meilleur quand il se partage.
-            </p>
-          </motion.div>
-        </section>
+        <HeroSection
+  whiteLine="NÉE D'UNE SÉANCE"
+  pinkLine="RATÉE."
+  subtitle="Mood2Fit est née d'une conviction simple : le sport est meilleur quand il se partage."
+/>
 
         <section style={{ background: "#f72585" }} className="py-1">
           <div className="max-w-7xl mx-auto px-6 md:px-16">
@@ -267,61 +252,8 @@ export default function AProposPage() {
             </div>
           </div>
         </section>
-
-        <section style={{ background: "#f72585" }} className="min-h-screen flex items-center justify-center py-40">
-          <div className="text-center px-6 max-w-5xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="font-roboto font-900 text-white uppercase leading-[0.85] tracking-[-0.04em] mb-10"
-              style={{ fontSize: "clamp(60px, 11vw, 150px)" }}>
-              Tu n'as plus<br />d'excuses.
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="font-roboto font-400 text-white/45 mb-14 max-w-md mx-auto"
-              style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
-              Sois parmi les premiers.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="flex gap-4 justify-center flex-wrap">
-              <Link href="#"
-                className="flex items-center gap-3 px-9 py-4 rounded-full font-roboto font-700 text-sm text-black bg-white hover:scale-[1.03] active:scale-[0.97] transition-all"
-                style={{ boxShadow: "0 8px 40px rgba(255,255,255,0.1)" }}>
-                <Image src="/app/apple.png" alt="Apple" width={22} height={22} style={{ objectFit: "contain", filter: "brightness(0)" }} />
-                <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
-                  <span style={{ fontSize: "9px", color: "rgba(0,0,0,0.5)", lineHeight: 1 }}>Télécharger sur</span>
-                  <span style={{ fontSize: "14px", fontWeight: 700, color: "#000", lineHeight: 1.2 }}>App Store</span>
-                </div>
-              </Link>
-              <Link href="#"
-                className="flex items-center gap-3 px-9 py-4 rounded-full font-roboto font-700 text-sm text-white border-2 border-black/20 active:scale-[0.97] transition-all" style={{ background: "#000" }}>
-                <Image src="/app/android.png" alt="Google Play" width={22} height={22} style={{ objectFit: "contain" }} />
-                <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
-                  <span style={{ fontSize: "9px", color: "rgba(255,255,255,0.6)", lineHeight: 1 }}>Disponible sur</span>
-                  <span style={{ fontSize: "14px", fontWeight: 700, color: "#fff", lineHeight: 1.2 }}>Google Play</span>
-                </div>
-              </Link>
-            </motion.div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-              className="font-roboto text-xs text-white/25 mt-8 tracking-widest uppercase">
-              Bientôt disponible sur les stores
-            </motion.p>
-          </div>
-        </section>
+      <CtaSection variant="pink" title={"Tu n'as plus d'excuses."} />
+        
 
       </main>
       <Footer />

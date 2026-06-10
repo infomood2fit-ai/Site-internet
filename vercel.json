@@ -6,7 +6,7 @@
     },
     {
     "path": "/api/newsletter-send-DISABLED",
-    "schedule": "0 8 1 * *"
+    "schedule": "0 9 1 * *"
     }
   ]
 }

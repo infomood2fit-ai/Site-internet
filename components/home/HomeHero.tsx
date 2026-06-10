@@ -78,14 +78,13 @@ export default function HomeHero() {
                 fontWeight: 900,
                 lineHeight: 0.88,
                 letterSpacing: "-0.04em",
-                fontSize: "clamp(52px, 13vw, 96px)", // ← clé du fix
+                fontSize: "clamp(43px, 11vw, 80px)", // ← clé du fix
               }}
             >
-              LE SPORT
-              <br />EST
-              <br />MEILLEUR
+              LE MOOD
+              <br />EST CONTAGIEUX,
               <br />
-              <span style={{ color: "#f72585" }}>À PLUSIEURS.</span>
+              <span style={{ color: "#f72585" }}>RéPANDS-LE.</span>
             </h1>
 
             {/* Sous-titre + boutons */}

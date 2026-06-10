@@ -5,7 +5,7 @@ import HomeFeatures from "@/components/home/HomeFeatures";
 import HomeArticles from "@/components/home/HomeArticles";
 import HomeCommunity from "@/components/home/HomeCommunity";
 import HomeNewsletter from "@/components/home/HomeNewsletter";
-import HomeCta from "@/components/home/HomeCta";
+import CtaSection from "@/components/CtaSection";
 
 export default function HomePage() {
   return (
@@ -17,7 +17,8 @@ export default function HomePage() {
         <HomeArticles />
         <HomeCommunity />
         <HomeNewsletter />
-        <HomeCta />
+        <CtaSection variant="pink" title={"La commu t'attends"} />
+        
       </main>
       <Footer />
     </>
