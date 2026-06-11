@@ -37,7 +37,7 @@ export default function HomeHero() {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/street.png"
+          src="/street.jpg"
           alt=""
           fill
           priority
