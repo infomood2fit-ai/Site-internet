@@ -79,15 +79,9 @@ function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
             {s.desc}
           </p>
         </div>
-
-        {/* Mockup — taille proportionnelle à la carte */}
         <div
           className="flex justify-center"
-          style={{
-            flex: 1,
-            alignItems: "flex-end",
-            paddingBottom: "0px",
-          }}
+          style={{ flex: 1, alignItems: "flex-end", paddingBottom: "0px" }}
         >
           <Image
             src={MOKUP_MAP[s.id]}
@@ -95,11 +89,7 @@ function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
             width={200}
             height={433}
             priority
-            style={{
-              width: "clamp(120px, 42vw, 180px)",
-              height: "auto",
-              objectFit: "contain",
-            }}
+            style={{ width: "clamp(120px, 42vw, 180px)", height: "auto", objectFit: "contain" }}
           />
         </div>
       </div>
@@ -182,19 +172,25 @@ export default function HomeFeatures() {
         ))}
       </div>
 
-      <div className="flex items-center gap-3 mt-8 z-20">
+      {/* DOTS — zone tactile 44x44px, point visuel inchangé */}
+      <div className="flex items-center gap-1 mt-8 z-20">
         {BASE_SLIDES.map((_s, i) => (
           <button
             key={i}
             onClick={() => { stopAuto(); goTo(i, i > current ? 1 : -1); setTimeout(startAuto, 5000); }}
             aria-label={`Slide ${i + 1}`}
-            className="rounded-full transition-all duration-300"
-            style={{
-              width: i === current ? 28 : 8,
-              height: 8,
-              background: i === current ? BASE_SLIDES[current].color : "rgba(0,0,0,0.15)",
-            }}
-          />
+            className="flex items-center justify-center transition-all duration-300"
+            style={{ width: 44, height: 44 }}
+          >
+            <span
+              className="rounded-full transition-all duration-300 block"
+              style={{
+                width: i === current ? 28 : 8,
+                height: 8,
+                background: i === current ? BASE_SLIDES[current].color : "rgba(0,0,0,0.4)",
+              }}
+            />
+          </button>
         ))}
       </div>
     </section>

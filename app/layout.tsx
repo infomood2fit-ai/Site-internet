@@ -77,7 +77,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={roboto.variable} style={{ overflowX: "hidden" }}>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
         <body className="font-roboto bg-[#080010] text-text-main antialiased" style={{ width: "100%", maxWidth: "100vw" }}>
     <Analytics />

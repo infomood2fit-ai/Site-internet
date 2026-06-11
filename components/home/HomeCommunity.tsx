@@ -68,7 +68,6 @@ export default function HomeCommunity() {
     return stopAuto;
   }, []);
 
-  // ── Swipe tactile ──
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -164,19 +163,25 @@ export default function HomeCommunity() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-3 mt-8">
+        {/* DOTS — zone tactile 44x44px, point visuel inchangé */}
+        <div className="flex items-center justify-center gap-1 mt-8">
           {BASE.map((_, i) => (
             <button
               key={i}
               onClick={() => { handleNav(i - current); }}
               aria-label={`Témoignage ${i + 1}`}
-              className="rounded-full transition-all duration-300"
-              style={{
-                width: i === current ? 28 : 8,
-                height: 8,
-                background: i === current ? "#f72585" : "rgba(0,0,0,0.15)",
-              }}
-            />
+              className="flex items-center justify-center transition-all duration-300"
+              style={{ width: 44, height: 44 }}
+            >
+              <span
+                className="rounded-full transition-all duration-300 block"
+                style={{
+                  width: i === current ? 28 : 8,
+                  height: 8,
+                  background: i === current ? "#f72585" : "rgba(0,0,0,0.4)",
+                }}
+              />
+            </button>
           ))}
         </div>
       </div>
@@ -195,7 +200,7 @@ function Card({ t, isActive }: { t: typeof BASE[0]; isActive: boolean }) {
       }}
     >
       <p className="font-roboto font-400 leading-relaxed italic"
-        style={{ fontSize: "16px", color: isActive ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.8)" }}>
+        style={{ fontSize: "16px", color: isActive ? "rgba(255,255,255,0.9)" : "#1a1a1a" }}>
         &ldquo;{t.quote}&rdquo;
       </p>
       <div className="flex items-center justify-between mt-6 pt-5"
@@ -209,7 +214,7 @@ function Card({ t, isActive }: { t: typeof BASE[0]; isActive: boolean }) {
             <p className="font-roboto font-700 text-sm" style={{ color: isActive ? "#fff" : "#000" }}>
               {t.name} · {t.city}
             </p>
-            <p className="font-roboto text-xs mt-0.5" style={{ color: isActive ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)" }}>
+            <p className="font-roboto text-xs mt-0.5" style={{ color: isActive ? "rgba(255,255,255,0.7)" : "#444444" }}>
               {t.sport}
             </p>
           </div>
@@ -218,7 +223,7 @@ function Card({ t, isActive }: { t: typeof BASE[0]; isActive: boolean }) {
           className="font-roboto font-700 text-[10px] tracking-[0.1em] uppercase px-2.5 py-1.5 rounded-full flex-shrink-0"
           style={{
             background: "#fff",
-            color: t.color,
+            color: t.color === "#4cc9f0" ? "#0077aa" : t.color,
             border: `1px solid ${t.color}40`,
           }}
         >
