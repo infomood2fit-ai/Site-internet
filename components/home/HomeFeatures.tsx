@@ -32,7 +32,7 @@ function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
       {/* ── DESKTOP ── */}
       <div className="hidden md:flex items-center px-14 h-full">
         <div className="flex flex-col gap-5 max-w-md z-10 relative">
-          <span className="font-roboto font-700 text-xs tracking-[0.25em] uppercase text-white/50">{s.num}</span>
+          <span className="font-roboto font-700 text-xs tracking-[0.25em] uppercase text-white/70">{s.num}</span>
           <h2
             className="font-roboto font-900 uppercase text-white whitespace-pre-line"
             style={{ fontSize: "clamp(40px, 5vw, 74px)", letterSpacing: "-0.02em", lineHeight: "0.9" }}
@@ -40,7 +40,7 @@ function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
             {s.title}
           </h2>
           <p
-            className="font-roboto font-400 text-white/65 leading-relaxed"
+            className="font-roboto font-400 text-white/80 leading-relaxed"
             style={{ fontSize: "clamp(13px, 1.2vw, 15px)", maxWidth: "320px" }}
           >
             {s.desc}
@@ -65,7 +65,7 @@ function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
       {/* ── MOBILE ── */}
       <div className="flex md:hidden flex-col h-full px-5 pt-5">
         <div className="flex flex-col gap-2">
-          <span className="font-roboto font-700 text-[10px] tracking-[0.25em] uppercase text-white/50">{s.num}</span>
+          <span className="font-roboto font-700 text-[10px] tracking-[0.25em] uppercase text-white/70">{s.num}</span>
           <h2
             className="font-roboto font-900 uppercase text-white whitespace-pre-line"
             style={{ fontSize: "clamp(26px, 7.5vw, 40px)", letterSpacing: "-0.02em", lineHeight: "0.92" }}
@@ -73,7 +73,7 @@ function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
             {s.title}
           </h2>
           <p
-            className="font-roboto font-400 text-white/65 leading-relaxed"
+            className="font-roboto font-400 text-white/80 leading-relaxed"
             style={{ fontSize: "clamp(12px, 3.2vw, 14px)" }}
           >
             {s.desc}

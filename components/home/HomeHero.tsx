@@ -125,7 +125,7 @@ export default function HomeHero() {
                 >
                   <Image src="/app/apple.png" alt="Apple" width={24} height={24} />
                   <div className="flex flex-col">
-                    <span style={{ fontSize: "9px", color: "rgba(0,0,0,0.55)", lineHeight: 1 }}>
+                    <span style={{ fontSize: "9px", color: "rgba(0,0,0,0.7)", lineHeight: 1 }}>
                       Télécharger sur
                     </span>
                     <span style={{ fontSize: "15px", fontWeight: 700, color: "#000" }}>

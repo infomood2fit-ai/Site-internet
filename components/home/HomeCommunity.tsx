@@ -200,7 +200,7 @@ function Card({ t, isActive }: { t: typeof BASE[0]; isActive: boolean }) {
       }}
     >
       <p className="font-roboto font-400 leading-relaxed italic"
-        style={{ fontSize: "16px", color: isActive ? "rgba(255,255,255,0.9)" : "#1a1a1a" }}>
+        style={{ fontSize: "16px", color: isActive ? "rgba(255,255,255,0.9)" : "#111111" }}>
         &ldquo;{t.quote}&rdquo;
       </p>
       <div className="flex items-center justify-between mt-6 pt-5"
