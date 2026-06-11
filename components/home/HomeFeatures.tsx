@@ -86,7 +86,7 @@ function SlideCard({ s }: { s: typeof BASE_SLIDES[0] }) {
           <Image
             src={MOKUP_MAP[s.id]}
             alt={`Mood2Fit ${s.id}`}
-            width={200}
+            width={180}
             height={433}
             priority
             style={{ width: "clamp(120px, 42vw, 180px)", height: "auto", objectFit: "contain" }}
