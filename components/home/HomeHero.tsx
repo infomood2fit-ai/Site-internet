@@ -81,10 +81,10 @@ export default function HomeHero() {
                 fontSize: "clamp(43px, 11vw, 80px)", // ← clé du fix
               }}
             >
-              LE MOOD
-              <br />EST CONTAGIEUX,
+              Déclenche ton 
+              <br />mouvement selon ton
               <br />
-              <span style={{ color: "#f72585" }}>RéPANDS-LE.</span>
+              <span style={{ color: "#f72585" }}>MOOD.</span>
             </h1>
 
             {/* Sous-titre + boutons */}
