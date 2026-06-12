@@ -16,7 +16,7 @@ const roboto = Roboto({
 
 export function generateMetadata(): Metadata {
   return {
-    metadataBase: new URL(""),
+    metadataBase: new URL("https://www.mood2fit.com"),
     title: {
       default: "Mood2Fit",
       template: "%s | Mood2Fit",
