@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/", // on n'indexe pas les routes API
     },
-    sitemap: "https://mood2fit.com/sitemap.xml",
+    sitemap: "https://www.mood2fit.com/sitemap.xml",
   };
 }

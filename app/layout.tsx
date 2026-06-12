@@ -16,7 +16,7 @@ const roboto = Roboto({
 
 export function generateMetadata(): Metadata {
   return {
-    metadataBase: new URL("https://mood2fit.com"),
+    metadataBase: new URL(""),
     title: {
       default: "Mood2Fit",
       template: "%s | Mood2Fit",
@@ -39,7 +39,7 @@ export function generateMetadata(): Metadata {
     openGraph: {
       title: "Mood2Fit — Trouve ta séance de sport idéale",
       description: "L'app qui matche ton énergie du jour avec ta séance de sport.",
-      url: "https://mood2fit.com",
+      url: "https://www.mood2fit.com",
       siteName: "Mood2Fit",
       locale: "fr_FR",
       type: "website",
