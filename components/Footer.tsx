@@ -38,6 +38,7 @@ const footerColumns = [
       { label: "Mentions légales", href: "/mentions-legales" },
       { label: "Confidentialité", href: "/confidentialite" },
       { label: "Confidentialité App", href: "/confidentialite-app" },
+      { label: "Suppression de compte", href: "/suppression-compte" },
       { label: "CGU", href: "/cgu" },
       { label: "Cookies", href: "/cookies" },
     ],
