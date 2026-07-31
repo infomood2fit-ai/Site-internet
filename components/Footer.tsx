@@ -37,6 +37,7 @@ const footerColumns = [
     links: [
       { label: "Mentions légales", href: "/mentions-legales" },
       { label: "Confidentialité", href: "/confidentialite" },
+      { label: "Confidentialité App", href: "/confidentialite-app" },
       { label: "CGU", href: "/cgu" },
       { label: "Cookies", href: "/cookies" },
     ],
