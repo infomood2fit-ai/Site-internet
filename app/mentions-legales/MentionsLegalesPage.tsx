@@ -20,7 +20,7 @@ export default function MentionsLegalesPage() {
                 <p className="mt-2"><strong style={{ color: "#fff" }}>Heitor LAVORATA</strong>, entrepreneur individuel (micro-entreprise)<br />
                 SIRET : 103 550 497 00012<br />
                 Activité : Conseil en systèmes et logiciels informatiques (APE 6201Z)<br />
-                Siège social : Yvelines (78), France<br />
+                Adresse : 2 rue du Printemps, escalier D, 78230 Le Pecq, France<br />
                 Responsable de publication : Heitor LAVORATA<br />
                 Email : <a href="mailto:hello@mood2fit.com" style={{ color: "#f72585" }} className="hover:opacity-75 transition-colors">hello@mood2fit.com</a></p>
               </section>
@@ -52,6 +52,11 @@ export default function MentionsLegalesPage() {
               <section>
                 <h2 className="font-roboto font-700 mb-3 uppercase tracking-widest" style={{ fontSize: "11px", color: "#f72585" }}>Liens hypertextes</h2>
                 <p>Le site mood2fit.com peut contenir des liens vers des sites tiers. Mood2Fit n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu ou leur politique de confidentialité.</p>
+              </section>
+
+              <section>
+                <h2 className="font-roboto font-700 mb-3 uppercase tracking-widest" style={{ fontSize: "11px", color: "#f72585" }}>Médiateur de la consommation</h2>
+                <p>Conformément aux articles L616-1 et R616-1 du Code de la consommation, tout consommateur a le droit de recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable d'un litige qui l'opposerait à Mood2Fit. Le médiateur retenu est <strong style={{ color: "#fff" }}>CM2C</strong>, joignable en ligne sur <a href="https://cm2c.net" target="_blank" rel="noopener noreferrer" style={{ color: "#f72585" }} className="hover:opacity-75 transition-colors">cm2c.net</a>.</p>
               </section>
 
               <section>

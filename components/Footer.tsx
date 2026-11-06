@@ -40,6 +40,7 @@ const footerColumns = [
       { label: "Confidentialité App", href: "/confidentialite-app" },
       { label: "Suppression de compte", href: "/suppression-compte" },
       { label: "CGU", href: "/cgu" },
+      { label: "CGV", href: "/cgv" },
       { label: "Cookies", href: "/cookies" },
     ],
   },

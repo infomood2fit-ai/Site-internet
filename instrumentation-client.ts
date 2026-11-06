@@ -8,7 +8,9 @@ Sentry.init({
   dsn: "https://b79a88484d677daa6ecfadc9c631fdf1@o4511412871233536.ingest.de.sentry.io/4511412873658448",
 
   // Add optional integrations for additional features
-  integrations: [Sentry.replayIntegration()],
+  // maskAllInputs: masque explicitement la valeur de tous les champs de saisie
+  // (formulaires, mots de passe...) dans les sessions Session Replay.
+  integrations: [Sentry.replayIntegration({ maskAllInputs: true })],
 
   // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
   tracesSampleRate: 1,

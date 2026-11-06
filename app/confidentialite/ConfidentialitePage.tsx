@@ -17,6 +17,7 @@ export default function ConfidentialitePage() {
               <section>
                 <h2 className="font-roboto font-700 mb-3 uppercase tracking-widest" style={{ fontSize: "11px", color: "#f72585" }}>Introduction</h2>
                 <p>Mood2Fit accorde une grande importance à la protection de vos données personnelles. Cette politique de confidentialité décrit comment nous collectons, utilisons et protégeons vos informations lorsque vous utilisez notre site mood2fit.com, conformément au Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679).</p>
+                <p className="mt-3">Cette politique concerne uniquement le site mood2fit.com. Le traitement des données dans l'application Mood2Fit, y compris les achats in-app, est décrit dans la <a href="/confidentialite-app" style={{ color: "#f72585" }} className="hover:opacity-75 transition-opacity">politique de confidentialité de l'application</a>. Les conditions de vente du Pass Fondateur et de l'abonnement Super Mooder sont disponibles sur la page <a href="/cgv" style={{ color: "#f72585" }} className="hover:opacity-75 transition-opacity">CGV</a>.</p>
               </section>
 
               <section>
@@ -93,7 +94,7 @@ export default function ConfidentialitePage() {
                 <p>Nous mettons en œuvre les mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, altération, divulgation ou destruction.</p>
               </section>
 
-              <p className="text-white/30 text-sm">Dernière mise à jour : mai 2026</p>
+              <p className="text-white/30 text-sm">Dernière mise à jour : novembre 2026</p>
             </div>
           </div>
         </section>

@@ -50,6 +50,12 @@ export default function SuppressionComptePage() {
               </section>
 
               <section>
+                <h2 className="font-roboto font-700 mb-3 uppercase tracking-widest" style={{ fontSize: "11px", color: "#f72585" }}>Si tu es Super Mooder</h2>
+                <p>Si tu es Super Mooder, la suppression de ton compte met fin à ton statut Super Mooder. Ton numéro de fondateur est définitivement perdu et n'est jamais réattribué. Tes données d'achat sont anonymisées et tes données chez RevenueCat, notre prestataire de gestion des achats, sont supprimées.</p>
+                <p className="mt-3"><strong className="text-white">Attention</strong> : supprimer ton compte ne résilie pas un abonnement en cours. Pour arrêter les prélèvements, résilie-le depuis les réglages de ton compte Apple (Réglages → ton nom → Abonnements) ou Google Play (Play Store → Paiements et abonnements → Abonnements).</p>
+              </section>
+
+              <section>
                 <h2 className="font-roboto font-700 mb-3 uppercase tracking-widest" style={{ fontSize: "11px", color: "#f72585" }}>Données supprimées</h2>
                 <p>Lors de la suppression de ton compte, les éléments suivants sont effacés définitivement :</p>
                 <ul className="mt-2 flex flex-col gap-1 pl-4" style={{ listStyleType: "disc" }}>
@@ -108,7 +114,7 @@ export default function SuppressionComptePage() {
                 </ul>
               </section>
 
-              <p className="text-white/30 text-sm">Dernière mise à jour : juillet 2026</p>
+              <p className="text-white/30 text-sm">Dernière mise à jour : novembre 2026</p>
             </div>
           </div>
         </section>
