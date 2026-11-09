@@ -29,6 +29,7 @@ export default function ConfidentialiteAppPage() {
                   <li><strong className="text-white">Activité</strong> : séances réalisées, réactions, publications, badges obtenus.</li>
                   <li><strong className="text-white">Préférences</strong> : types de séances, objectifs, rythme d'activité, thème d'affichage.</li>
                   <li><strong className="text-white">Achats</strong> : type d'offre achetée (Pass Fondateur et palier, ou abonnement), identifiant du produit, date d'achat et d'expiration, statut de l'abonnement, identifiant de transaction fourni par le store, numéro de fondateur, préférence d'affichage du badge et choix d'apparaître ou non dans les crédits. Mood2Fit ne reçoit jamais tes coordonnées bancaires : le paiement est traité par Apple ou Google.</li>
+                  <li><strong className="text-white">Versions bêta</strong> (Pass Fondateur Argent ou Or, sur inscription) : la plateforme de ton appareil (iOS ou Android) et la date d'inscription. Ton adresse e-mail sert alors à t'inviter aux versions de test.</li>
                   <li><strong className="text-white">Données techniques</strong> : jeton de notification push (facultatif), adresse IP utilisée lors de la connexion.</li>
                 </ul>
               </section>
@@ -43,6 +44,7 @@ export default function ConfidentialiteAppPage() {
                     ["Fonctionnalités communautaires (fil, réactions)", "Exécution du contrat (art. 6.1.b)"],
                     ["Gestion des achats in-app : activation du statut Super Mooder, attribution du numéro de fondateur, restauration des achats, renouvellements, résiliations et remboursements", "Exécution du contrat (art. 6.1.b)"],
                     ["Conservation des justificatifs de transaction", "Obligation légale (art. 6.1.c)"],
+                    ["Invitations aux versions bêta (accès anticipé des Pass Argent et Or)", "Exécution du contrat (art. 6.1.b)"],
                     ["Notifications push", "Consentement (art. 6.1.a)"],
                     ["Statistiques anonymisées pour améliorer l'application", "Intérêt légitime (art. 6.1.f)"],
                   ]}
@@ -53,6 +55,7 @@ export default function ConfidentialiteAppPage() {
                 <h2 className="font-roboto font-700 mb-3 uppercase tracking-widest" style={{ fontSize: "11px", color: "#f72585" }}>4. Paiements</h2>
                 <p>Les achats sont effectués via l'App Store (Apple) ou Google Play (Google), qui traitent le paiement en tant que responsables de traitement indépendants, selon leurs propres politiques de confidentialité.</p>
                 <p className="mt-2">Mood2Fit utilise RevenueCat, Inc. (États-Unis) pour vérifier les achats et gérer les abonnements. RevenueCat reçoit ton identifiant Mood2Fit et les informations de transaction transmises par le store, mais pas ton nom, ton e-mail ni tes coordonnées bancaires. RevenueCat agit comme sous-traitant, lié à Mood2Fit par un accord de traitement des données conforme au RGPD.</p>
+                <p className="mt-2">Si tu t'inscris aux versions bêta, ton adresse e-mail est transmise à Apple (TestFlight) ou à Google (test fermé Google Play) pour t'envoyer l'invitation. Tu peux te désinscrire à tout moment depuis la page « Mon pass » : ton inscription est alors supprimée.</p>
               </section>
 
               <section>
